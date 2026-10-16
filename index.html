@@ -1,0 +1,659 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Adarsh Pandey · software engineer</title>
+<meta name="description" content="Adarsh Pandey, software engineer (SDE-2) at OpenText in Bengaluru. Full-stack and AI engineer: distributed back ends, Angular, and AI agents that help engineers ship.">
+<meta property="og:title" content="Adarsh Pandey · software engineer">
+<meta property="og:description" content="Full-stack and AI engineer: distributed back ends, Angular, and AI agents that help engineers ship.">
+<meta property="og:url" content="https://adarsh-pandey07.github.io/">
+<meta property="og:type" content="profile">
+<meta name="theme-color" content="#121110">
+<link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 64 64'%3E%3Crect width='64' height='64' fill='%23121110'/%3E%3Crect x='10' y='40' width='44' height='8' fill='%23d9582c'/%3E%3Ctext x='10' y='34' font-family='Menlo,monospace' font-weight='700' font-size='26' fill='%23f2ede4'%3Eap%3C/text%3E%3C/svg%3E">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Bricolage+Grotesque:opsz,wght@12..96,500;12..96,700;12..96,800&family=IBM+Plex+Mono:wght@400;500;600&family=IBM+Plex+Sans:ital,wght@0,400;0,500;0,600;1,400&display=swap" rel="stylesheet">
+<style>
+  :root {
+    --night: #121110;
+    --night-2: #1c1a18;
+    --cream: #f2ede4;
+    --cream-2: #e8e1d3;
+    --signal: #d9582c;
+    --signal-ink: #b0461f;
+    --green: #2f7d4f;
+
+    --bg: var(--cream);
+    --bg-2: var(--cream-2);
+    --fg: var(--night);
+    --fg-2: #4b4741;
+    --fg-3: #807a70;
+    --line: #cfc6b5;
+    --accent-text: var(--signal-ink);
+    color-scheme: light;
+  }
+  @media (prefers-color-scheme: dark) {
+    :root:not([data-theme="light"]) {
+      --bg: #171614;
+      --bg-2: #201e1b;
+      --fg: #f2ede4;
+      --fg-2: #c3bcb0;
+      --fg-3: #8d867b;
+      --line: #35322d;
+      --accent-text: #e58a63;
+      color-scheme: dark;
+    }
+  }
+  :root[data-theme="dark"] {
+    --bg: #171614;
+    --bg-2: #201e1b;
+    --fg: #f2ede4;
+    --fg-2: #c3bcb0;
+    --fg-3: #8d867b;
+    --line: #35322d;
+    --accent-text: #e58a63;
+    color-scheme: dark;
+  }
+
+  * { box-sizing: border-box; }
+  html { scroll-padding-top: 24px; }
+  body {
+    margin: 0; background: var(--bg); color: var(--fg);
+    font: 400 18px/1.6 "IBM Plex Sans", system-ui, sans-serif;
+    -webkit-font-smoothing: antialiased;
+  }
+  ::selection { background: var(--signal); color: var(--night); }
+  a { color: inherit; }
+  a:focus-visible, button:focus-visible, input:focus-visible { outline: 3px solid var(--signal); outline-offset: 3px; }
+  .mono { font-family: "IBM Plex Mono", ui-monospace, Menlo, monospace; }
+  .wrap { max-width: 1160px; margin: 0 auto; padding: 0 32px; }
+  .display { font-family: "Bricolage Grotesque", "IBM Plex Sans", sans-serif; letter-spacing: -.035em; line-height: .95; font-weight: 800; }
+
+  /* ───────────── Hero (always dark) ───────────── */
+  .hero { background: var(--night); color: var(--cream); position: relative; overflow: hidden; }
+  .hero::after { /* faint grid, like graph paper on a whiteboard */
+    content: ""; position: absolute; inset: 0; pointer-events: none; opacity: .5;
+    background-image: linear-gradient(rgba(242,237,228,.045) 1px, transparent 1px), linear-gradient(90deg, rgba(242,237,228,.045) 1px, transparent 1px);
+    background-size: 48px 48px;
+  }
+  .topbar { position: relative; z-index: 1; display: flex; justify-content: space-between; align-items: center; padding-top: 22px; font-size: 13px; color: #a39c90; gap: 16px; }
+  .topbar nav { display: flex; gap: 22px; align-items: center; }
+  .topbar a { text-decoration: none; }
+  .topbar a:hover { color: var(--cream); }
+  .kbd { display: inline-block; border: 1px solid #4a4640; border-bottom-width: 2px; padding: 0 6px; border-radius: 4px; font-size: 12px; color: var(--cream); }
+  .linkbtn { background: none; border: 0; padding: 0; font: inherit; color: inherit; cursor: pointer; }
+  .linkbtn:hover { color: var(--cream); }
+
+  .hero-grid { position: relative; z-index: 1; display: grid; grid-template-columns: 1.25fr 1fr; gap: 56px; align-items: end; padding: 88px 0 72px; }
+  .hello { font-size: 15px; color: var(--signal); margin: 0 0 18px; }
+  .hero h1 { font-size: clamp(64px, 10.5vw, 148px); margin: 0 0 30px; }
+  .hero h1 span { display: block; }
+  .hero h1 .last { color: var(--signal); }
+  .pitch { font-size: clamp(20px, 2.1vw, 25px); line-height: 1.45; max-width: 560px; margin: 0 0 34px; color: #d9d2c5; }
+  .pitch b { color: var(--cream); font-weight: 600; box-shadow: inset 0 -.32em 0 rgba(217,88,44,.55); }
+  .ctas { display: flex; flex-wrap: wrap; gap: 14px; }
+  .btn {
+    display: inline-flex; align-items: center; gap: 10px; padding: 13px 20px; font: 600 15px/1 "IBM Plex Mono", monospace;
+    text-decoration: none; border: 2px solid var(--cream); color: var(--cream); background: transparent;
+    transition: transform .12s, box-shadow .12s;
+  }
+  .btn:hover { transform: translate(-3px, -3px); box-shadow: 3px 3px 0 var(--signal); }
+  .btn.solid { background: var(--signal); border-color: var(--signal); color: var(--night); }
+  .btn.solid:hover { box-shadow: 3px 3px 0 var(--cream); }
+
+  /* Event stream */
+  .stream { border: 2px solid #3a3631; background: #0c0b0a; font: 13px/1.55 "IBM Plex Mono", monospace; box-shadow: 8px 8px 0 var(--signal); }
+  .stream-head { display: flex; justify-content: space-between; padding: 10px 14px; border-bottom: 2px solid #3a3631; color: #8d867b; font-size: 12px; }
+  .live { color: #6fd39a; }
+  .live::before { content: "●"; margin-right: 6px; animation: blink 1.6s steps(2, start) infinite; }
+  @keyframes blink { to { visibility: hidden; } }
+  .stream ol { list-style: none; margin: 0; padding: 10px 14px 14px; }
+  .stream li { display: grid; grid-template-columns: 30px 92px 1fr; gap: 10px; padding: 3px 0; color: #d9d2c5; }
+  .stream li { animation: arrive .5s ease-out both; }
+  @keyframes arrive { from { opacity: 0; transform: translateY(6px); background: rgba(217,88,44,.2); } to { opacity: 1; transform: none; background: transparent; } }
+  .off { color: #5f5a52; }
+  .ev { font-weight: 600; }
+  .ev.JOINED, .ev.PROMOTED { color: #7fb7ff; }
+  .ev.SHIPPED, .ev.RELEASED { color: #6fd39a; }
+  .ev.MIGRATED, .ev.REDUCED { color: #ffc861; }
+  .ev.AWARD { color: var(--signal); }
+  .stream-foot { padding: 8px 14px; border-top: 2px solid #3a3631; color: #5f5a52; font-size: 12px; }
+
+  /* ───────────── Ticker of results ───────────── */
+  .ticker { background: var(--signal); color: var(--night); overflow: hidden; border-top: 2px solid var(--night); border-bottom: 2px solid var(--night); }
+  .ticker-track { display: flex; width: max-content; animation: slide 38s linear infinite; }
+  .ticker:hover .ticker-track { animation-play-state: paused; }
+  .ticker span { font: 600 15px/1 "IBM Plex Mono", monospace; padding: 16px 28px; white-space: nowrap; border-right: 2px solid var(--night); }
+  @keyframes slide { to { transform: translateX(-50%); } }
+
+  /* ───────────── Sections ───────────── */
+  section { padding: 110px 0; border-bottom: 2px solid var(--fg); }
+  .sec-head { display: grid; grid-template-columns: 220px 1fr; gap: 32px; margin-bottom: 56px; align-items: start; }
+  .sec-no { font: 500 13px/1.4 "IBM Plex Mono", monospace; color: var(--accent-text); padding-top: 14px; }
+  .sec-no small { display: block; color: var(--fg-3); margin-top: 4px; }
+  h2.display { font-size: clamp(42px, 6vw, 76px); margin: 0; }
+  .sec-lede { grid-column: 2; font-size: 21px; color: var(--fg-2); max-width: 660px; margin: 20px 0 0; }
+
+  /* Results: big numbers */
+  .numbers { display: grid; grid-template-columns: repeat(6, 1fr); border-top: 2px solid var(--fg); }
+  .n { padding: 30px 26px 28px 0; border-bottom: 1px solid var(--line); }
+  .n.big { grid-column: span 3; }
+  .n.small { grid-column: span 2; }
+  .n.big + .n.big, .n.small + .n.small { padding-left: 26px; border-left: 1px solid var(--line); }
+  .n b { display: block; font-family: "Bricolage Grotesque", sans-serif; font-weight: 800; letter-spacing: -.04em; line-height: .9; margin-bottom: 14px; }
+  .n.big b { font-size: clamp(64px, 9vw, 120px); }
+  .n.small b { font-size: clamp(44px, 5vw, 64px); }
+  .n b em { font-style: normal; color: var(--accent-text); }
+  .n p { margin: 0; color: var(--fg-2); font-size: 16px; max-width: 360px; }
+  .n p .how { display: block; font: 13px/1.5 "IBM Plex Mono", monospace; color: var(--fg-3); margin-top: 8px; }
+
+  /* Projects */
+  .project { display: grid; grid-template-columns: 1fr 1fr; gap: 64px; align-items: center; padding: 56px 0; border-top: 1px solid var(--line); }
+  .project:first-of-type { border-top: 0; padding-top: 0; }
+  .project.flip .p-text { order: 2; }
+  .p-meta { font: 500 13px/1.4 "IBM Plex Mono", monospace; color: var(--fg-3); display: flex; flex-wrap: wrap; gap: 8px 16px; margin-bottom: 14px; }
+  .badge { color: var(--night); background: var(--signal); padding: 3px 8px; font-weight: 600; }
+  .badge.os { background: var(--fg); color: var(--bg); }
+  .project h3 { font-family: "Bricolage Grotesque", sans-serif; font-weight: 800; letter-spacing: -.03em; font-size: clamp(36px, 4.4vw, 54px); line-height: 1; margin: 0 0 18px; }
+  .project p { color: var(--fg-2); margin: 0 0 16px; }
+  .project .stackline { font: 13px/1.6 "IBM Plex Mono", monospace; color: var(--fg-3); }
+  .textlinks { display: flex; gap: 22px; flex-wrap: wrap; margin-top: 22px; font: 600 15px/1 "IBM Plex Mono", monospace; }
+  .textlinks a { text-decoration: none; border-bottom: 2px solid var(--signal); padding-bottom: 4px; }
+  .textlinks a:hover { background: var(--signal); color: var(--night); }
+
+  .shot { position: relative; justify-self: center; }
+  .shot img { display: block; width: min(380px, 100%); height: auto; transform: rotate(-2.5deg); border: 2px solid var(--fg); box-shadow: 10px 10px 0 var(--signal); background: var(--bg); }
+  .shot .sticker { white-space: nowrap; position: absolute; right: -14px; bottom: -22px; transform: rotate(4deg); background: var(--fg); color: var(--bg); font: 600 13px/1.3 "IBM Plex Mono", monospace; padding: 8px 12px; }
+
+  /* Flow diagrams */
+  .flow { border: 2px solid var(--fg); background: var(--bg-2); padding: 26px 24px 22px; font: 13px/1.35 "IBM Plex Mono", monospace; position: relative; }
+  .flow-title { position: absolute; top: -12px; left: 16px; background: var(--bg); padding: 0 8px; color: var(--fg-3); font-size: 12px; }
+  .steps { display: flex; flex-wrap: wrap; align-items: center; gap: 10px 8px; }
+  .step { border: 1.5px solid var(--fg); background: var(--bg); padding: 8px 10px; }
+  .step.gate { border-color: var(--accent-text); color: var(--accent-text); font-weight: 600; }
+  .step.out { background: var(--fg); color: var(--bg); }
+  .arrow { color: var(--fg-3); }
+  .loop { margin-top: 14px; color: var(--accent-text); font-size: 12.5px; }
+
+  /* Changelog */
+  .log { border-top: 2px solid var(--fg); }
+  .rel { display: grid; grid-template-columns: 220px 1fr; gap: 32px; padding: 40px 0; border-bottom: 1px solid var(--line); }
+  .rel-side .v { font-family: "Bricolage Grotesque", sans-serif; font-weight: 800; font-size: 72px; line-height: .9; letter-spacing: -.04em; color: transparent; -webkit-text-stroke: 1.5px var(--fg); }
+  .rel.now .v { color: var(--signal); -webkit-text-stroke: 0; }
+  .rel-side .d { font: 13px/1.5 "IBM Plex Mono", monospace; color: var(--fg-3); margin-top: 10px; }
+  .rel h3 { font-size: 26px; font-weight: 600; margin: 0 0 4px; letter-spacing: -.01em; }
+  .rel .org { font: 13px/1.5 "IBM Plex Mono", monospace; color: var(--fg-3); margin: 0 0 18px; }
+  .rel ul { list-style: none; margin: 0; padding: 0; }
+  .rel li { display: grid; grid-template-columns: 92px 1fr; gap: 12px; padding: 7px 0; color: var(--fg-2); }
+  .rel li .k { font: 600 11.5px/2.1 "IBM Plex Mono", monospace; text-transform: uppercase; letter-spacing: .06em; }
+  .k.add { color: var(--green); }
+  .k.fix { color: var(--accent-text); }
+  .k.sec { color: #3b6fd1; }
+  .k.chg { color: #9a6b00; }
+  [data-mode="dark"] .k.add { color: #6fd39a; }
+  [data-mode="dark"] .k.sec { color: #7fb7ff; }
+  [data-mode="dark"] .k.chg { color: #ffc861; }
+
+  /* Stack */
+  .stack { display: grid; grid-template-columns: repeat(3, 1fr); border-top: 2px solid var(--fg); }
+  .stack div { padding: 26px 26px 26px 0; border-bottom: 1px solid var(--line); }
+  .stack div:not(:nth-child(3n+1)) { padding-left: 26px; border-left: 1px solid var(--line); }
+  .stack h3 { font: 600 13px/1 "IBM Plex Mono", monospace; text-transform: uppercase; letter-spacing: .08em; color: var(--accent-text); margin: 0 0 14px; }
+  .stack p { margin: 0; font-size: 19px; line-height: 1.55; }
+
+  /* Contact (dark band) */
+  .contact { background: var(--night); color: var(--cream); border-bottom: 0; }
+  .contact .sec-no { color: var(--signal); }
+  .contact h2 { font-size: clamp(44px, 8vw, 110px); }
+  .contact .mail { display: inline-block; margin-top: 34px; font-family: "Bricolage Grotesque", sans-serif; font-weight: 700; font-size: clamp(22px, 3.6vw, 44px); letter-spacing: -.02em; text-decoration: none; border-bottom: 4px solid var(--signal); line-height: 1.2; word-break: break-all; }
+  .contact .mail:hover { color: var(--signal); }
+  .contact .ctas { margin-top: 40px; }
+  .contact p { color: #c3bcb0; font-size: 21px; max-width: 620px; margin: 22px 0 0; }
+  footer { background: var(--night); color: #6f695f; font: 12.5px/1.6 "IBM Plex Mono", monospace; padding: 26px 0 34px; border-top: 1px solid #2a2724; }
+  footer .wrap { display: flex; flex-wrap: wrap; justify-content: space-between; gap: 8px 24px; }
+
+  /* Search overlay */
+  .search { position: fixed; inset: 0; z-index: 50; background: rgba(18,17,16,.72); display: none; align-items: flex-start; justify-content: center; padding: 12vh 16px 16px; }
+  .search.open { display: flex; }
+  .search-box { width: min(640px, 100%); background: var(--bg); color: var(--fg); border: 2px solid var(--fg); box-shadow: 10px 10px 0 var(--signal); }
+  .search-box input { width: 100%; border: 0; border-bottom: 2px solid var(--fg); background: transparent; color: var(--fg); font: 500 18px/1 "IBM Plex Mono", monospace; padding: 18px 20px; outline: none; }
+  .results { list-style: none; margin: 0; padding: 6px 0; max-height: 52vh; overflow-y: auto; }
+  .results li a { display: block; padding: 10px 20px; text-decoration: none; }
+  .results li a:hover, .results li a.active { background: var(--bg-2); }
+  .results .r-sec { font: 12px/1.4 "IBM Plex Mono", monospace; color: var(--fg-3); }
+  .results mark { background: var(--signal); color: var(--night); }
+  .results .empty { padding: 14px 20px; color: var(--fg-3); font: 14px "IBM Plex Mono", monospace; }
+  .search-hint { padding: 10px 20px; border-top: 1px solid var(--line); color: var(--fg-3); font: 12px "IBM Plex Mono", monospace; }
+  .flash { animation: flash 1.6s ease-out; }
+  @keyframes flash { 0%, 30% { background: rgba(217,88,44,.25); } 100% { background: transparent; } }
+
+  /* ───────────── Responsive ───────────── */
+  @media (max-width: 900px) {
+    .hero-grid { grid-template-columns: 1fr; gap: 48px; padding: 64px 0 56px; }
+    .sec-head, .rel { grid-template-columns: 1fr; gap: 10px; }
+    .sec-lede { grid-column: 1; }
+    .project, .project.flip { grid-template-columns: 1fr; gap: 40px; }
+    .project.flip .p-text { order: 0; }
+    .stack { grid-template-columns: 1fr 1fr; }
+    .stack div:not(:nth-child(3n+1)) { padding-left: 0; border-left: 0; }
+    .stack div:nth-child(even) { padding-left: 22px; border-left: 1px solid var(--line); }
+    .numbers { grid-template-columns: 1fr 1fr; }
+    .n.big, .n.small { grid-column: span 1; padding-left: 0 !important; border-left: 0 !important; }
+    .n:nth-child(even) { padding-left: 20px !important; border-left: 1px solid var(--line) !important; }
+    .rel-side { display: flex; align-items: baseline; gap: 16px; }
+    .rel-side .v { font-size: 52px; }
+    section { padding: 80px 0; }
+  }
+  @media (max-width: 560px) {
+    body { font-size: 17px; }
+    .wrap { padding: 0 16px; }
+    .topbar nav a { display: none; }
+    .stream li { grid-template-columns: 28px 80px 1fr; gap: 8px; font-size: 12px; }
+    .numbers, .stack { grid-template-columns: 1fr; }
+    .n:nth-child(even), .stack div:nth-child(even) { padding-left: 0 !important; border-left: 0 !important; }
+    .stack div { padding-right: 0; }
+    .rel li { grid-template-columns: 1fr; gap: 0; }
+    .shot .sticker { right: 0; }
+    section { padding: 64px 0; }
+  }
+  @media (prefers-reduced-motion: reduce) {
+    *, *::before, *::after { animation: none !important; transition: none !important; }
+    .ticker-track { flex-wrap: wrap; width: auto; }
+  }
+  @media print {
+    .hero::after, .stream, .ticker, .search, .topbar nav, .shot, .ctas { display: none !important; }
+    .hero, .contact, footer { background: #fff; color: #000; }
+    .hero h1 .last { color: #000; }
+    section { padding: 28px 0; break-inside: avoid-page; }
+  }
+</style>
+</head>
+<body>
+
+<header class="hero">
+  <div class="wrap">
+    <div class="topbar mono">
+      <span>adarsh-pandey07.github.io</span>
+      <nav>
+        <a href="#work">work</a>
+        <a href="#log">changelog</a>
+        <a href="#contact">contact</a>
+        <button class="linkbtn" id="openSearch" type="button">search <span class="kbd">/</span></button>
+        <button class="linkbtn" id="theme" type="button">dark</button>
+      </nav>
+    </div>
+
+    <div class="hero-grid">
+      <div>
+        <p class="hello mono">// software engineer (SDE-2) · OpenText · Bengaluru</p>
+        <h1 class="display"><span>Adarsh</span><span class="last">Pandey</span></h1>
+        <p class="pitch">Full-stack &amp; AI engineer. I build <b>full stack products on distributed back ends</b>, and <b>the AI agents that help engineers ship them</b>. 5+ years on a multi-tenant, event-driven SaaS.</p>
+        <div class="ctas">
+          <a class="btn solid" href="mailto:adarshpandey.eng@gmail.com">email me →</a>
+          <a class="btn" href="https://www.linkedin.com/in/pandey-adarsh/" target="_blank" rel="noopener">linkedin</a>
+          <a class="btn" href="https://github.com/adarsh-pandey07" target="_blank" rel="noopener">github</a>
+        </div>
+      </div>
+
+      <div class="stream" aria-label="Career events">
+        <div class="stream-head"><span>topic: adarsh.career</span><span class="live">live</span></div>
+        <ol id="events"></ol>
+        <div class="stream-foot">consumer lag: 0 · keyed by role</div>
+      </div>
+    </div>
+  </div>
+
+  <div class="ticker" aria-hidden="true">
+    <div class="ticker-track" id="ticker"></div>
+  </div>
+</header>
+
+<main>
+  <section id="results">
+    <div class="wrap">
+      <div class="sec-head">
+        <div class="sec-no">01 / results<small>on Core Share</small></div>
+        <div>
+          <h2 class="display">Numbers, not adjectives.</h2>
+          <p class="sec-lede">Core Share is OpenText's multi-tenant, event-driven SaaS for secure file sharing, on Google Cloud and Kubernetes. My focus there: data consistency, search at scale and large-file handling.</p>
+        </div>
+      </div>
+      <div class="numbers">
+        <div class="n big"><b>8<em>TB</em></b><p>moved from Elasticsearch to OpenSearch with zero data loss.<span class="how">engine-agnostic client · dual-write · staged cutover</span></p></div>
+        <div class="n big"><b>~3mo<em>→</em>min</b><p>a full reindex went from about 3 months to minutes.<span class="how">targeted reindexing</span></p></div>
+        <div class="n small"><b>2.5<em>×</em></b><p>monthly test automation, from my E2E test agent.</p></div>
+        <div class="n small"><b>~70<em>%</em></b><p>less defect-triage time, from the RAG pipeline I built.</p></div>
+        <div class="n small"><b>652<em>K+</em></b><p>line app: I worked on its AngularJS-to-Angular migration.</p></div>
+      </div>
+    </div>
+  </section>
+
+  <section id="work">
+    <div class="wrap">
+      <div class="sec-head">
+        <div class="sec-no">02 / work<small>side project + agents</small></div>
+        <div>
+          <h2 class="display">Things I've built.</h2>
+          <p class="sec-lede">My rule for agents: <em>LLMs miss a rule or two, so the important ones get checked in code.</em> That's why the agents below use gated phases, verification gates and reviewer sub-agents.</p>
+        </div>
+      </div>
+
+      <article class="project">
+        <div class="p-text">
+          <div class="p-meta"><span class="badge os">open source</span><span>macOS · Swift</span></div>
+          <h3>DeskSwipe</h3>
+          <p>Windows-style "show desktop" for the Mac. Three fingers down: every window minimizes. Three fingers up: exactly those windows come back, in order. Windows you minimized yourself stay put.</p>
+          <p>It remembers only what the last swipe hid, and forgets any window you bring back from the Dock, close, or quit.</p>
+          <div class="stackline">Swift · AppKit · SwiftUI · Accessibility API · MultitouchSupport · Swift Testing</div>
+          <div class="textlinks"><a href="https://github.com/DeskSwipe/DeskSwipe/releases/latest" target="_blank" rel="noopener">download v0.1 ↓</a><a href="https://github.com/DeskSwipe/DeskSwipe" target="_blank" rel="noopener">source →</a></div>
+        </div>
+        <div class="shot">
+          <img id="ds-shot" src="assets/deskswipe-panel-light.png" alt="DeskSwipe's menu bar panel with status and a feature toggle" width="640" height="638">
+          <span class="sticker">3 fingers ↓ ↑</span>
+        </div>
+      </article>
+
+      <article class="project flip">
+        <div class="p-text">
+          <div class="p-meta"><span class="badge">CEO Excellence Award</span><span>OpenText</span></div>
+          <h3>E2E test agent</h3>
+          <p>Turns manual test cases into Playwright tests through gated phases and a reviewer sub-agent, using tool calling, deterministic skills and a plan-and-execute workflow. Monthly test automation rose 2.5×, and it was adopted organisation-wide.</p>
+          <div class="stackline">Playwright · tool calling · plan-and-execute · multi-model evals</div>
+        </div>
+        <div class="flow">
+          <span class="flow-title">how it works</span>
+          <div class="steps">
+            <span class="step">manual test cases</span><span class="arrow">→</span>
+            <span class="step">plan</span><span class="arrow">→</span>
+            <span class="step">execute, in gated phases</span><span class="arrow">→</span>
+            <span class="step gate">reviewer sub-agent</span><span class="arrow">→</span>
+            <span class="step out">Playwright tests</span>
+          </div>
+          <div class="loop">evaluated across multiple models</div>
+        </div>
+      </article>
+
+      <article class="project">
+        <div class="p-text">
+          <div class="p-meta"><span class="badge">AI Innovation Award</span><span>OpenText</span></div>
+          <h3>Defect-triage RAG</h3>
+          <p>I built the RAG pipeline of a defect-triage agent: ingestion, chunking, classification and re-ranking, plus the embedding fix that made retrieval reliable. It cut triage time by about 70%.</p>
+          <div class="stackline">LangGraph · Python · FastAPI · FAISS · Angular dashboard</div>
+        </div>
+        <div class="flow">
+          <span class="flow-title">what I built</span>
+          <div class="steps">
+            <span class="step">ingestion</span><span class="arrow">·</span>
+            <span class="step">chunking</span><span class="arrow">·</span>
+            <span class="step">classification</span><span class="arrow">·</span>
+            <span class="step">re-ranking</span><span class="arrow">·</span>
+            <span class="step gate">embedding fix</span>
+          </div>
+          <div class="loop">LangGraph + FAISS, served by FastAPI, with an Angular dashboard</div>
+        </div>
+      </article>
+
+      <article class="project flip">
+        <div class="p-text">
+          <div class="p-meta"><span>OpenText</span></div>
+          <h3>Agent harness &amp; evals</h3>
+          <p>A terminal AI agent harness on the open-source pi agent, with verification gates, model-tier steering and token budgets. I also evaluate and benchmark agents across models, and worked on a multi-agent threat-modeling agent (STRIDE, CVSS 3.1) that ties findings to file/line evidence, with a sub-agent re-checking Critical/High findings.</p>
+          <div class="stackline">agent harnesses · agent evals · multi-agent · STRIDE · CVSS 3.1</div>
+        </div>
+        <div class="flow">
+          <span class="flow-title">harness</span>
+          <div class="steps">
+            <span class="step gate">verification gates</span>
+            <span class="step">model-tier steering</span>
+            <span class="step">token budgets</span>
+          </div>
+          <div class="loop" style="margin-top:22px;color:var(--fg-3)">threat-modeling agent</div>
+          <div class="steps" style="margin-top:8px">
+            <span class="step">findings</span><span class="arrow">→</span>
+            <span class="step">file/line evidence</span><span class="arrow">→</span>
+            <span class="step gate">sub-agent re-checks Critical/High</span>
+          </div>
+        </div>
+      </article>
+    </div>
+  </section>
+
+  <section id="log">
+    <div class="wrap">
+      <div class="sec-head">
+        <div class="sec-no">03 / changelog<small>newest first</small></div>
+        <div>
+          <h2 class="display">Release notes.</h2>
+          <p class="sec-lede">Every role at OpenText, Bengaluru. I own features end to end, from design and delivery to production support; I run design and code reviews, and guide junior engineers.</p>
+        </div>
+      </div>
+      <div class="log">
+        <div class="rel now">
+          <div class="rel-side"><div class="v">v3</div><div class="d">Nov 2023 → now</div></div>
+          <div>
+            <h3>Software Engineer (SDE-2)</h3>
+            <p class="org">OpenText · Core Share</p>
+            <ul>
+              <li><span class="k add">added</span><span>Drove the Elasticsearch-to-OpenSearch migration: an engine-agnostic client and dual-write for a safe, staged cutover.</span></li>
+              <li><span class="k add">added</span><span>SIEM event streaming on Kafka Connect, with compensating steps, async export workers and reconciliation APIs.</span></li>
+              <li><span class="k add">added</span><span>OpenText Intelligent Viewing in the Angular app: real-time collaboration over WebSockets, presentation mode, search and permission-aware print.</span></li>
+              <li><span class="k add">added</span><span>AI: the test-automation agent, the defect-triage RAG pipeline, the agent harness and the threat-modeling agent (see 02).</span></li>
+              <li><span class="k chg">worked on</span><span>Targeted reindexing, permission-trimmed search, Kafka consumer recovery, the streaming upload path and the AngularJS-to-Angular migration.</span></li>
+              <li><span class="k sec">security</span><span>Tenant isolation, RBAC for external collaborators, OAuth/OIDC, SSO and 2FA.</span></li>
+              <li><span class="k fix">fixed</span><span>Investigated a double sign-in in the Angular bootstrap and designed a safer OIDC sign-in flow. Fixed RxJS memory leaks.</span></li>
+            </ul>
+          </div>
+        </div>
+        <div class="rel">
+          <div class="rel-side"><div class="v">v2</div><div class="d">Nov 2021 → Oct 2023</div></div>
+          <div>
+            <h3>Associate Software Engineer</h3>
+            <p class="org">OpenText · Core Share</p>
+            <ul>
+              <li><span class="k add">added</span><span>Helped build Interactive Reports: a Node.js (Fastify) service querying activity data in Elasticsearch, with Angular dashboards for audit and compliance.</span></li>
+              <li><span class="k add">added</span><span>Web Links, owned end to end: Sequelize model, Sails.js REST APIs, permissions, activity feed, notifications and UI. My first feature across database, API and UI.</span></li>
+              <li><span class="k chg">changed</span><span>Moved AngularJS screens to the SmartUI design system: LESS theme variables, right-to-left layouts, translations for every supported language, tenant branding.</span></li>
+              <li><span class="k chg">changed</span><span>Moved the shared data-model library to Sequelize v6, including native promises and a Model.changed() fix.</span></li>
+              <li><span class="k sec">security</span><span>Cleared Twistlock and Black Duck findings by tracing transitive npm dependencies.</span></li>
+            </ul>
+          </div>
+        </div>
+        <div class="rel">
+          <div class="rel-side"><div class="v">v1</div><div class="d">Apr 2021 → Oct 2021</div></div>
+          <div>
+            <h3>Engineering Intern</h3>
+            <p class="org">OpenText</p>
+            <ul>
+              <li><span class="k add">added</span><span>Built a single-page app for Covisint in Angular 12 and TypeScript; then SmartUI pages in AngularJS and UI fixes in Core Share.</span></li>
+            </ul>
+          </div>
+        </div>
+        <div class="rel">
+          <div class="rel-side"><div class="v">v0</div><div class="d">2017 → 2021</div></div>
+          <div>
+            <h3>B.Tech, Computer Science</h3>
+            <p class="org">SRM University</p>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section id="stack">
+    <div class="wrap">
+      <div class="sec-head">
+        <div class="sec-no">04 / stack<small>daily drivers</small></div>
+        <div><h2 class="display">Tools I reach for.</h2></div>
+      </div>
+      <div class="stack">
+        <div><h3>front end</h3><p>Angular, TypeScript, RxJS, AngularJS, WebSockets, LESS, localization</p></div>
+        <div><h3>back end</h3><p>Node.js (Fastify, Sails.js), Python (FastAPI, Tornado), REST APIs, Sequelize, microservices</p></div>
+        <div><h3>data</h3><p>Kafka, OpenSearch, Elasticsearch, PostgreSQL, Cassandra, Redis</p></div>
+        <div><h3>ai</h3><p>AI agents, agent evals, LangGraph, RAG, FAISS, Playwright</p></div>
+        <div><h3>platform &amp; security</h3><p>Google Cloud, Kubernetes, OAuth/OIDC, SSO, 2FA, RBAC, application security</p></div>
+        <div><h3>how I work</h3><p>End-to-end ownership, design and code reviews, guiding junior engineers</p></div>
+        <div><h3>certifications</h3><p>The Web Developer Bootcamp · Introduction to HTML5 · UC Davis, Introduction to Web Development</p></div>
+        <div><h3>after hours</h3><p>Swift and AppKit (DeskSwipe)</p></div>
+      </div>
+    </div>
+  </section>
+
+  <section class="contact" id="contact">
+    <div class="wrap">
+      <div class="sec-no">05 / contact</div>
+      <h2 class="display">Let's talk shop.</h2>
+      <p>Happy to talk about distributed systems, agent design or RAG. Email is best.</p>
+      <a class="mail" href="mailto:adarshpandey.eng@gmail.com">adarshpandey.eng@gmail.com</a>
+      <div class="ctas">
+        <a class="btn" href="https://www.linkedin.com/in/pandey-adarsh/" target="_blank" rel="noopener">linkedin</a>
+        <a class="btn" href="https://github.com/adarsh-pandey07" target="_blank" rel="noopener">github</a>
+      </div>
+    </div>
+  </section>
+</main>
+
+<footer>
+  <div class="wrap"><span>© <span id="year">2026</span> Adarsh Pandey</span><span>hand-written HTML · no framework · no tracking · press / to search</span></div>
+</footer>
+
+<div class="search" id="search" role="dialog" aria-modal="true" aria-label="Search this page">
+  <div class="search-box">
+    <input id="q" type="search" placeholder="search my work: kafka, angular, award…" autocomplete="off" spellcheck="false">
+    <ul class="results" id="hits"></ul>
+    <div class="search-hint">↑ ↓ to move · enter to jump · esc to close</div>
+  </div>
+</div>
+
+<script>
+(function () {
+  var root = document.documentElement;
+  var media = window.matchMedia('(prefers-color-scheme: dark)');
+  var reduce = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+
+  /* Theme */
+  var themeBtn = document.getElementById('theme');
+  var shot = document.getElementById('ds-shot');
+  function stored() { try { return localStorage.getItem('theme'); } catch (e) { return null; } }
+  function applyTheme(theme) {
+    if (theme) root.setAttribute('data-theme', theme); else root.removeAttribute('data-theme');
+    var dark = theme ? theme === 'dark' : media.matches;
+    root.setAttribute('data-mode', dark ? 'dark' : 'light');
+    themeBtn.textContent = dark ? 'light' : 'dark';
+    if (shot) shot.src = 'assets/deskswipe-panel-' + (dark ? 'dark' : 'light') + '.png';
+  }
+  applyTheme(stored());
+  media.addEventListener('change', function () { applyTheme(stored()); });
+  themeBtn.addEventListener('click', function () {
+    var next = root.getAttribute('data-mode') === 'dark' ? 'light' : 'dark';
+    try { localStorage.setItem('theme', next); } catch (e) {}
+    applyTheme(next);
+  });
+  document.getElementById('year').textContent = new Date().getFullYear();
+
+  /* Career event stream */
+  // [key, event, payload]. The key is the role (v1–v3), not an exact order within it.
+  var events = [
+    ['v1', 'JOINED', 'OpenText, engineering intern'],
+    ['v1', 'SHIPPED', 'Angular 12 SPA for Covisint'],
+    ['v2', 'PROMOTED', 'associate software engineer'],
+    ['v2', 'SHIPPED', 'Interactive Reports'],
+    ['v2', 'SHIPPED', 'Web Links, DB → API → UI'],
+    ['v3', 'PROMOTED', 'software engineer, SDE-2'],
+    ['v3', 'MIGRATED', '8 TB → OpenSearch, 0 lost'],
+    ['v3', 'REDUCED', 'full reindex ~3 months → minutes'],
+    ['v3', 'SHIPPED', 'streaming uploads up to 10 GB'],
+    ['v3', 'AWARD', 'CEO Excellence · E2E test agent'],
+    ['v3', 'AWARD', 'AI Innovation · defect-triage RAG'],
+    ['oss', 'RELEASED', 'DeskSwipe v0.1.0']
+  ];
+  var list = document.getElementById('events');
+  events.forEach(function (e, i) {
+    var li = document.createElement('li');
+    li.innerHTML = '<span class="off"></span><span class="ev"></span><span class="pl"></span>';
+    li.children[0].textContent = e[0];
+    li.children[1].textContent = e[1];
+    li.children[1].className = 'ev ' + e[1];
+    li.children[2].textContent = e[2];
+    li.style.animationDelay = (0.4 + i * 0.55) + 's';
+    list.appendChild(li);
+  });
+
+  /* Results ticker */
+  var facts = ['8 TB migrated · zero data loss', 'full reindex: ~3 months → minutes', 'monthly test automation 2.5×', 'triage time cut ~70%', 'streaming uploads up to 10 GB', 'CEO Excellence Award', 'AI Innovation Award'];
+  var track = document.getElementById('ticker');
+  facts.concat(facts).forEach(function (f) {
+    var s = document.createElement('span'); s.textContent = f; track.appendChild(s);
+  });
+
+  /* Page search: "/" or the button */
+  var overlay = document.getElementById('search');
+  var input = document.getElementById('q');
+  var out = document.getElementById('hits');
+  var index = [];
+  // Join text nodes with spaces so a label and its text don't run together ("added" + "SIEM…").
+  function words(el) {
+    var parts = [], walker = document.createTreeWalker(el, NodeFilter.SHOW_TEXT);
+    while (walker.nextNode()) parts.push(walker.currentNode.nodeValue);
+    return parts.join(' ').replace(/\s+/g, ' ').trim();
+  }
+  document.querySelectorAll('main article, .rel li, .n, .stack > div').forEach(function (el, n) {
+    if (!el.id) el.id = 'hit-' + n;
+    var sec = el.closest('section');
+    var label = sec ? sec.querySelector('.sec-no').firstChild.textContent.trim() : '';
+    var title = el.querySelector('h3') ? el.querySelector('h3').textContent : '';
+    index.push({ el: el, sec: label, title: title, text: words(el) });
+  });
+  var active = 0, hits = [];
+  function esc(s) { return s.replace(/[&<>"]/g, function (c) { return { '&': '&amp;', '<': '&lt;', '>': '&gt;', '"': '&quot;' }[c]; }); }
+  function snippet(text, q) {
+    var at = text.toLowerCase().indexOf(q);
+    var start = Math.max(0, at - 40);
+    var s = (start ? '…' : '') + text.slice(start, at + q.length + 70) + '…';
+    var re = new RegExp('(' + q.replace(/[.*+?^${}()|[\]\\]/g, '\\$&') + ')', 'ig');
+    return esc(s).replace(re, '<mark>$1</mark>');
+  }
+  function render() {
+    var q = input.value.trim().toLowerCase();
+    out.innerHTML = '';
+    hits = q ? index.filter(function (d) { return d.text.toLowerCase().indexOf(q) !== -1; }) : [];
+    active = 0;
+    if (q && !hits.length) { out.innerHTML = '<li class="empty">no match for "' + esc(q) + '"</li>'; return; }
+    hits.slice(0, 8).forEach(function (d, n) {
+      var li = document.createElement('li');
+      li.innerHTML = '<a href="#' + d.el.id + '"' + (n === 0 ? ' class="active"' : '') + '><div class="r-sec">' + esc(d.sec + (d.title ? ' · ' + d.title : '')) + '</div>' + snippet(d.text, q) + '</a>';
+      li.firstChild.addEventListener('click', function (e) { e.preventDefault(); jump(d); });
+      out.appendChild(li);
+    });
+  }
+  function jump(d) {
+    close();
+    d.el.scrollIntoView({ behavior: reduce ? 'auto' : 'smooth', block: 'center' });
+    d.el.classList.remove('flash'); void d.el.offsetWidth; d.el.classList.add('flash');
+  }
+  function open() { overlay.classList.add('open'); input.value = ''; render(); input.focus(); }
+  function close() { overlay.classList.remove('open'); }
+  document.getElementById('openSearch').addEventListener('click', open);
+  overlay.addEventListener('click', function (e) { if (e.target === overlay) close(); });
+  input.addEventListener('input', render);
+  input.addEventListener('keydown', function (e) {
+    var links = out.querySelectorAll('a');
+    if (e.key === 'ArrowDown' || e.key === 'ArrowUp') {
+      e.preventDefault();
+      if (!links.length) return;
+      links[active].classList.remove('active');
+      active = (active + (e.key === 'ArrowDown' ? 1 : links.length - 1)) % links.length;
+      links[active].classList.add('active');
+      links[active].scrollIntoView({ block: 'nearest' });
+    } else if (e.key === 'Enter' && hits[active]) {
+      jump(hits[active]);
+    }
+  });
+  document.addEventListener('keydown', function (e) {
+    if (e.key === 'Escape') close();
+    else if (e.key === '/' && !overlay.classList.contains('open') && !/INPUT|TEXTAREA/.test(document.activeElement.tagName)) { e.preventDefault(); open(); }
+  });
+})();
+</script>
+</body>
+</html>
