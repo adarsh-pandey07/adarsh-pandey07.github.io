@@ -509,7 +509,7 @@ layout: null
 </main>
 
 <footer class="site">
-  <div class="wrap"><span>© <span id="year">2026</span> Adarsh Pandey</span><span>hand-written HTML · no framework · no tracking · <a href="/feed.xml">rss</a></span></div>
+  <div class="wrap"><span>© <span id="year">2026</span> Adarsh Pandey</span><span><a href="/feed.xml">rss</a></span></div>
 </footer>
 
 <script type="application/json" id="postsData">[{% for post in site.posts %}{"id": {{ post.slug | prepend: "w-" | jsonify }}, "title": {{ post.title | jsonify }}, "url": {{ post.url | jsonify }}, "text": {{ post.content | strip_html | normalize_whitespace | jsonify }}}{% unless forloop.last %},{% endunless %}{% endfor %}]</script>
@@ -716,5 +716,6 @@ layout: null
   toggle(howBtn, howDrawer, evalDrawer, evalBtn);
 })();
 </script>
+{% include analytics.html %}
 </body>
 </html>

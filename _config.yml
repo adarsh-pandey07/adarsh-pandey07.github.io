@@ -16,3 +16,6 @@ feed:
 exclude:
   - README.md
   - vendor
+
+# GoatCounter site code (the part before .goatcounter.com). Leave empty to turn analytics off.
+goatcounter:

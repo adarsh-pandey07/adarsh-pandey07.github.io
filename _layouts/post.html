@@ -35,7 +35,8 @@
 {% endif %}
 </main>
 <footer class="site">
-  <div class="wrap"><span>© {{ site.time | date: "%Y" }} Adarsh Pandey</span><span>no framework · no tracking · <a href="/feed.xml">rss</a></span></div>
+  <div class="wrap"><span>© {{ site.time | date: "%Y" }} Adarsh Pandey</span><span><a href="/feed.xml">rss</a></span></div>
 </footer>
+{% include analytics.html %}
 </body>
 </html>
