@@ -1,0 +1,41 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+{% seo %}
+<meta name="theme-color" content="#121110">
+<link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 64 64'%3E%3Crect width='64' height='64' fill='%23121110'/%3E%3Crect x='10' y='40' width='44' height='8' fill='%23d9582c'/%3E%3Ctext x='10' y='34' font-family='Menlo,monospace' font-weight='700' font-size='26' fill='%23f2ede4'%3Eap%3C/text%3E%3C/svg%3E">
+{% feed_meta %}
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Bricolage+Grotesque:opsz,wght@12..96,600;12..96,700;12..96,800&family=IBM+Plex+Mono:wght@400;500;600&family=Newsreader:ital,opsz,wght@0,6..72,400;0,6..72,500;0,6..72,600;1,6..72,400&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="/assets/site.css">
+<script>try { var t = localStorage.getItem('theme'); if (t) document.documentElement.setAttribute('data-theme', t); } catch (e) {}</script>
+</head>
+<body>
+<a class="skip" href="#main">Skip to content</a>
+<div class="wrap">
+  <div class="topbar">
+    <a class="home" href="/">← adarsh-pandey07.github.io</a>
+    <nav aria-label="Main"><a href="/blog/">writing</a><a class="hide-sm" href="/#work">work</a><a href="/feed.xml">rss</a></nav>
+  </div>
+</div>
+<main id="main">
+{% if page.layout == "post" %}
+  <article class="post">
+    <div class="post-meta"><time datetime="{{ page.date | date_to_xmlschema }}">{{ page.date | date: "%B %-d, %Y" }}</time><span>{{ content | number_of_words | divided_by: 220 | plus: 1 }} min read</span><span>Adarsh Pandey</span></div>
+    <h1>{{ page.title }}</h1>
+    {% if page.subtitle %}<p class="dek">{{ page.subtitle }}</p>{% endif %}
+    <div class="post-body">{{ content }}</div>
+    <div class="post-foot">Thoughts or corrections? <a href="mailto:adarshpandey.eng@gmail.com">adarshpandey.eng@gmail.com</a> · <a href="/blog/">more writing →</a></div>
+  </article>
+{% else %}
+  {{ content }}
+{% endif %}
+</main>
+<footer class="site">
+  <div class="wrap"><span>© {{ site.time | date: "%Y" }} Adarsh Pandey</span><span>no framework · no tracking · <a href="/feed.xml">rss</a></span></div>
+</footer>
+</body>
+</html>

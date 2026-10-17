@@ -1,0 +1,17 @@
+title: Adarsh Pandey
+description: Software engineer at OpenText. Notes on distributed systems and AI agents.
+url: https://adarsh-pandey07.github.io
+author: Adarsh Pandey
+permalink: /blog/:title/
+markdown: kramdown
+kramdown:
+  input: GFM
+  hard_wrap: false
+highlighter: rouge
+plugins:
+  - jekyll-feed
+  - jekyll-seo-tag
+feed:
+  path: feed.xml
+exclude:
+  - README.md

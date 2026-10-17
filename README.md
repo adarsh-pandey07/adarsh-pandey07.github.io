@@ -1,9 +1,10 @@
 # adarsh-pandey07.github.io
 
-Source for [adarsh-pandey07.github.io](https://adarsh-pandey07.github.io), my personal site.
+Personal site and blog, built by GitHub Pages with Jekyll.
 
-One hand-written `index.html`: no framework, no build step, no tracking. GitHub Pages serves it from this branch.
+- `index.html` — the homepage, including the in-browser BM25 "ask my work" search and its live eval.
+- `assets/site.css` — styles shared by the homepage and the blog.
+- `_posts/` — blog posts in Markdown (`YYYY-MM-DD-slug.md`, with `title`, `subtitle` and `description` front matter).
+- `_layouts/post.html` — the post and blog-index layout.
 
-- Fonts: Bricolage Grotesque, IBM Plex Sans and IBM Plex Mono (Google Fonts)
-- Light and dark themes, plus a page search you open with `/`
-- `assets/`: DeskSwipe screenshots
+To add a post, drop a Markdown file into `_posts/` and push. It shows up on `/blog/`, on the homepage, in `/feed.xml` and in the homepage search.
