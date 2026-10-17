@@ -12,7 +12,7 @@ layout: null
 <meta property="og:description" content="Full-stack and AI engineer: distributed back ends, Angular, and AI agents that help engineers ship.">
 <meta property="og:url" content="https://adarsh-pandey07.github.io/">
 <meta property="og:type" content="profile">
-<meta name="theme-color" content="#000000">
+<meta name="theme-color" content="#0c0b10">
 <link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 64 64'%3E%3Crect width='64' height='64' fill='%23121110'/%3E%3Crect x='10' y='40' width='44' height='8' fill='%23d9582c'/%3E%3Ctext x='10' y='34' font-family='Menlo,monospace' font-weight='700' font-size='26' fill='%23f2ede4'%3Eap%3C/text%3E%3C/svg%3E">
 <link rel="alternate" type="application/atom+xml" title="Writing" href="/feed.xml">
 <link rel="preconnect" href="https://fonts.googleapis.com">
@@ -26,62 +26,80 @@ layout: null
 
 <nav class="gnav" aria-label="Main">
   <div class="wrap">
-    <a class="gnav-home" href="#top">Adarsh Pandey</a>
+    <a class="gnav-home" href="#top"><span class="mini" aria-hidden="true">ap</span>adarsh-pandey</a>
     <div class="gnav-links">
-      <a href="#results">Results</a>
-      <a href="#work">Work</a>
-      <a href="#writing">Writing</a>
-      <a href="#log">Changelog</a>
-      <a href="#stack">Stack</a>
-      <a href="#contact">Contact</a>
+      <a href="#results">results</a>
+      <a href="#work">work</a>
+      <a href="#writing">writing</a>
+      <a href="#log">changelog</a>
+      <a href="#stack">stack</a>
+      <a href="#contact">contact</a>
     </div>
     <div class="gnav-tools">
-      <button class="linkbtn hide-sm" type="button" id="printCv">Résumé</button>
-      <button class="linkbtn" id="theme" type="button">Dark</button>
+      <button class="linkbtn hide-sm" type="button" id="printCv">résumé</button>
+      <button class="linkbtn" id="theme" type="button">dark</button>
     </div>
   </div>
 </nav>
 
 <header class="hero" id="top">
   <div class="wrap">
-    <p class="prompt" aria-hidden="true"><span>~/adarsh</span> $ whoami<i class="cursor"></i></p>
-    <p class="eyebrow">Software Engineer (SDE-2) · OpenText · Bengaluru</p>
-    <h1>Adarsh Pandey<span>.</span></h1>
-    <p class="tagline">Full-stack &amp; AI engineer.</p>
-    <p class="pitch">I build <b>full stack products on distributed back ends</b>, and <b>the AI agents that help engineers ship them</b>. 5+ years on a multi-tenant, event-driven SaaS.</p>
-    <div class="links">
-      <a class="pill" href="mailto:adarshpandey.eng@gmail.com">Email me</a>
-      <a class="more" href="https://www.linkedin.com/in/pandey-adarsh/" target="_blank" rel="noopener">LinkedIn</a>
-      <a class="more" href="https://github.com/adarsh-pandey07" target="_blank" rel="noopener">GitHub</a>
+    <div class="banner">
+      <p class="banner-title" aria-hidden="true">adarsh-pandey <span>· 5+ yrs</span></p>
+      <div class="banner-left">
+        <div class="mark" aria-hidden="true">AP</div>
+        <h1>Adarsh Pandey</h1>
+        <p class="role">Software Engineer (SDE-2)</p>
+        <p class="dim">OpenText · Bengaluru</p>
+      </div>
+      <div class="banner-right">
+        <h2 class="bh">Full-stack &amp; AI engineer</h2>
+        <p class="pitch">I build <b>full stack products on distributed back ends</b>, and <b>the AI agents that help engineers ship them</b>. 5+ years on a multi-tenant, event-driven SaaS.</p>
+        <div class="now" data-doc="now" data-title="What I'm doing now" data-label="now">
+          <h2 class="bh">Now <time datetime="2026-10">updated Oct 2026</time></h2>
+          <ul class="todo">
+          <li class="doing"><span class="box" aria-hidden="true"></span><span class="sr">In progress: </span><span>Building AI agents at OpenText: test automation, defect triage, agent harnesses, and evaluating agents across models.</span></li>
+          <li class="doing"><span class="box" aria-hidden="true"></span><span class="sr">In progress: </span><span>Shipping DeskSwipe, a macOS menu bar app, on the side.</span></li>
+          <li class="done"><span class="box" aria-hidden="true"></span><span class="sr">Done: </span><span>Wrote up what I learned reading the source code of 12 coding agents. <a href="/blog/i-read-the-source-of-12-coding-agents/">Read it</a></span></li>
+          </ul>
+        </div>
+        <h2 class="bh">Reach me</h2>
+        <ul class="sq">
+          <li><a href="mailto:adarshpandey.eng@gmail.com">adarshpandey.eng@gmail.com</a></li>
+          <li><a href="https://www.linkedin.com/in/pandey-adarsh/" target="_blank" rel="noopener">linkedin.com/in/pandey-adarsh</a></li>
+          <li><a href="https://github.com/adarsh-pandey07" target="_blank" rel="noopener">github.com/adarsh-pandey07</a></li>
+        </ul>
+      </div>
     </div>
 
     <div class="spot" role="search">
-      <div class="term-bar" aria-hidden="true"><i></i><i></i><i></i><span>~/adarsh — ask-my-work</span></div>
       <div class="spot-body" aria-live="polite">
         <div id="askIntro">
-          <div class="welcome"><span class="star" aria-hidden="true">✻</span> Welcome to <b>ask-my-work</b><span>search over this site and my writing · no LLM</span></div>
-          <p class="intro">Answers are quoted from this site and my writing, ranked by BM25, with the score and a link to the source. No language model, so nothing gets made up: no match, no answer.</p>
-          <p class="tip">Try one:</p>
-          <div class="chips">
-            <button class="chip" type="button">how big was the OpenSearch migration?</button>
-            <button class="chip" type="button">what does the test agent do?</button>
-            <button class="chip" type="button">which awards?</button>
-            <button class="chip" type="button">kafka experience</button>
-          </div>
-          <p class="tip">Or type <b>/</b> for commands: /work, /stack, /contact, /resume…</p>
+          <p class="intro">Ask about my work. Answers are quoted from this site and my writing, ranked by BM25, with the score and a link to the source. No language model, so nothing gets made up: no match, no answer.</p>
+          <p class="q-head"><span>?</span> What do you want to know?</p>
+          <ol class="chips">
+            <li><button class="chip" type="button">how big was the OpenSearch migration?</button></li>
+            <li><button class="chip" type="button">what does the test agent do?</button></li>
+            <li><button class="chip" type="button">which awards?</button></li>
+            <li><button class="chip" type="button">kafka experience</button></li>
+          </ol>
+          <p class="hint">tab move · enter select · <b>/</b> commands</p>
         </div>
         <ol class="hits" id="hits"></ol>
       </div>
       <form id="askForm" autocomplete="off">
         <span class="ps1" aria-hidden="true">&gt;</span>
         <label for="q" class="sr">Ask a question about my work, or type / for commands</label>
-        <input id="q" type="search" placeholder="Ask about my work, or / for commands" spellcheck="false" role="combobox" aria-autocomplete="list" aria-controls="cmdMenu" aria-expanded="false">
-        <span class="kbd" aria-hidden="true">/</span>
+        <input id="q" type="search" placeholder="ask about my work, or / for commands" spellcheck="false" role="combobox" aria-autocomplete="list" aria-controls="cmdMenu" aria-expanded="false">
       </form>
       <ul class="cmd-menu" id="cmdMenu" role="listbox" hidden></ul>
       <div class="spot-foot">
-        <span><span class="dim">bm25 · 0 tokens ·</span> <button class="linkbtn" type="button" id="evalBtn" aria-expanded="false" aria-controls="evalDrawer">eval: running…</button></span>
-        <button class="linkbtn" type="button" id="howBtn" aria-expanded="false" aria-controls="howDrawer">? how it works</button>
+        <span class="seg s-model">⚙ bm25</span><span class="sep" aria-hidden="true">›</span>
+        <span class="seg s-path">~/adarsh</span><span class="sep" aria-hidden="true">›</span>
+        <span class="seg s-git hide-sm">⎇ main</span><span class="sep hide-sm" aria-hidden="true">›</span>
+        <button class="linkbtn seg s-eval" type="button" id="evalBtn" aria-expanded="false" aria-controls="evalDrawer">eval: running…</button><span class="sep hide-sm" aria-hidden="true">›</span>
+        <span class="seg s-ctx hide-sm">0 tokens · $0.000</span>
+        <button class="linkbtn seg s-how" type="button" id="howBtn" aria-expanded="false" aria-controls="howDrawer">? how</button>
       </div>
       <div class="drawer" id="evalDrawer" hidden></div>
       <div class="drawer" id="howDrawer" hidden></div>
@@ -90,24 +108,10 @@ layout: null
 </header>
 
 <main id="main">
-  <div class="now" data-doc="now" data-title="What I'm doing now" data-label="now">
-    <div class="wrap">
-      <p class="eyebrow">Now<time datetime="2026-10">updated Oct 2026</time></p>
-      <div class="todo">
-        <p class="todo-head"><span class="dot" aria-hidden="true">●</span> Update Todos</p>
-        <ul>
-          <li class="doing"><span class="box" aria-hidden="true"></span><span class="sr">In progress: </span><span>Building AI agents at OpenText: test automation, defect triage, agent harnesses, and evaluating agents across models.</span></li>
-          <li class="doing"><span class="box" aria-hidden="true"></span><span class="sr">In progress: </span><span>Shipping DeskSwipe, a macOS menu bar app, on the side.</span></li>
-          <li class="done"><span class="box" aria-hidden="true"></span><span class="sr">Done: </span><span>Wrote up what I learned reading the source code of 12 coding agents. <a href="/blog/i-read-the-source-of-12-coding-agents/">Read it</a></span></li>
-        </ul>
-      </div>
-    </div>
-  </div>
-
-  <section class="band" id="results" data-label="results">
+  <section class="band" id="results"  <section class="band" id="results" data-label="results">
     <div class="wrap">
       <div class="head reveal">
-        <p class="eyebrow">Results on Core Share</p>
+        <p class="eyebrow"><span class="dot">●</span> cat results.md</p>
         <h2>Numbers, not adjectives.</h2>
         <p>Core Share is OpenText's multi-tenant, event-driven SaaS for secure file sharing, on Google Cloud and Kubernetes. My focus there: data consistency, search at scale and large-file handling.</p>
       </div>
@@ -124,7 +128,7 @@ layout: null
   <section class="band alt" id="work" data-label="work">
     <div class="wrap">
       <div class="head reveal">
-        <p class="eyebrow">Work</p>
+        <p class="eyebrow"><span class="dot">●</span> ls ~/work</p>
         <h2>Things I've built.</h2>
         <p>My rule for agents: <em>LLMs miss a rule or two, so the important ones get checked in code.</em> That's why the agents below use gated phases, verification gates and reviewer sub-agents.</p>
       </div>
@@ -144,12 +148,9 @@ layout: null
         <article class="tile project reveal" id="test-agent" data-doc="p-e2e" data-title="E2E test agent">
           <div class="meta"><span class="award">CEO Excellence Award</span><span>OpenText</span></div>
           <h3>E2E test agent</h3>
-          <div class="flow" aria-label="How it works">
-            <span class="step">manual test cases</span><span class="arrow">→</span>
-            <span class="step">plan</span><span class="arrow">→</span>
-            <span class="step">execute, in gated phases</span><span class="arrow">→</span>
-            <span class="step gate">reviewer sub-agent</span><span class="arrow">→</span>
-            <span class="step out">Playwright tests</span>
+          <div class="tree" aria-label="How it works">
+            <p class="tree-root">e2e-agent/</p>
+            <ul><li>manual test cases</li><li>plan</li><li>execute, in gated phases</li><li class="gate">reviewer sub-agent</li><li class="out">Playwright tests</li></ul>
           </div>
           <dl class="case">
             <dt>problem</dt><dd>Turning manual test cases into automated Playwright tests.</dd>
@@ -163,8 +164,9 @@ layout: null
         <article class="tile project reveal" id="triage-rag" data-doc="p-rag" data-title="Defect-triage RAG">
           <div class="meta"><span class="award">AI Innovation Award</span><span>OpenText</span></div>
           <h3>Defect-triage RAG</h3>
-          <div class="flow" aria-label="What I built">
-            <span class="step">ingestion</span><span class="step">chunking</span><span class="step">classification</span><span class="step">re-ranking</span><span class="step gate">embedding fix</span>
+          <div class="tree" aria-label="What I built">
+            <p class="tree-root">rag-pipeline/</p>
+            <ul><li>ingestion</li><li>chunking</li><li>classification</li><li>re-ranking</li><li class="gate">embedding fix</li></ul>
           </div>
           <dl class="case">
             <dt>problem</dt><dd>Defect triage took too long.</dd>
@@ -187,13 +189,13 @@ layout: null
             <div class="stackline">agent harnesses · agent evals · multi-agent · STRIDE · CVSS 3.1</div>
           </div>
           <div>
-            <div class="flow">
-              <span class="flow-label">Harness</span>
-              <span class="step gate">verification gates</span><span class="step">model-tier steering</span><span class="step">token budgets</span>
+            <div class="tree">
+              <p class="tree-root">harness/</p>
+              <ul><li class="gate">verification gates</li><li>model-tier steering</li><li>token budgets</li></ul>
             </div>
-            <div class="flow">
-              <span class="flow-label">Threat-modeling agent</span>
-              <span class="step">findings</span><span class="arrow">→</span><span class="step">file/line evidence</span><span class="arrow">→</span><span class="step gate">sub-agent re-checks Critical/High</span>
+            <div class="tree">
+              <p class="tree-root">threat-modeling-agent/</p>
+              <ul><li>findings</li><li>file/line evidence</li><li class="gate">sub-agent re-checks Critical/High</li></ul>
             </div>
           </div>
         </article>
@@ -204,29 +206,28 @@ layout: null
   <section class="band" id="writing" data-label="writing">
     <div class="wrap">
       <div class="head reveal">
-        <p class="eyebrow">Writing</p>
+        <p class="eyebrow"><span class="dot">●</span> ls ~/writing</p>
         <h2>Notes from the work.</h2>
       </div>
-      <div class="posts">
+      <ol class="posts pick">
         {% for post in site.posts limit: 3 %}
-        <article class="tile post-card reveal" data-doc="w-{{ post.slug }}" data-title="{{ post.title | escape }}">
-          <time datetime="{{ post.date | date_to_xmlschema }}">{{ post.date | date: "%B %-d, %Y" }}</time>
+        <li class="post-card reveal{% if forloop.first %} sel{% endif %}" data-doc="w-{{ post.slug }}" data-title="{{ post.title | escape }}">
+          <span class="arrow" aria-hidden="true">→</span><span class="n">{{ forloop.index }}.</span>
           <div>
-            <h3><a href="{{ post.url }}">{{ post.title }}</a></h3>
+            <h3><a href="{{ post.url }}">{{ post.title }}</a> <time datetime="{{ post.date | date_to_xmlschema }}">({{ post.date | date: "%b %-d, %Y" }})</time></h3>
             <p>{{ post.description }}</p>
           </div>
-          <a class="more" href="{{ post.url }}">Read</a>
-        </article>
+        </li>
         {% endfor %}
-      </div>
-      <p class="after links"><a class="more" href="/blog/">All writing</a><a class="more" href="/feed.xml">RSS feed</a></p>
+      </ol>
+      <p class="after hint"><a href="/blog/">all writing</a> · <a href="/feed.xml">rss feed</a></p>
     </div>
   </section>
 
   <section class="band alt" id="log" data-label="changelog">
     <div class="wrap">
       <div class="head reveal">
-        <p class="eyebrow">Changelog</p>
+        <p class="eyebrow"><span class="dot">●</span> cat changelog.md</p>
         <h2>Release notes.</h2>
         <p>Every role at OpenText, Bengaluru. I own features end to end, from design and delivery to production support; I run design and code reviews, and guide junior engineers.</p>
       </div>
@@ -287,7 +288,7 @@ layout: null
   <section class="band" id="stack" data-label="stack">
     <div class="wrap">
       <div class="head reveal">
-        <p class="eyebrow">Stack</p>
+        <p class="eyebrow"><span class="dot">●</span> cat stack.toml</p>
         <h2>Tools I reach for.</h2>
       </div>
       <dl class="stack reveal" data-doc="stack" data-title="Skills and tools">
@@ -295,21 +296,21 @@ layout: null
           {% include tech.html n="Angular" c="#DD0031" i="angular" %}
           {% include tech.html n="TypeScript" c="#3178C6" i="typescript" %}
           {% include tech.html n="RxJS" c="#B7178C" i="reactivex" %}
-          {% include tech.html n="AngularJS" c="#E23237" b="JS" %}
+          {% include tech.html n="AngularJS" c="#E23237" i="angularjs" %}
           {% include tech.html n="LESS" c="#1D365D" i="less" dk=1 %}
-          <span class="ti plain">WebSockets</span>
-          <span class="ti plain">localization</span>
+          {% include tech.html n="WebSockets" c="#2F8FDD" i="websockets" %}
+          {% include tech.html n="localization" c="#8B5CF6" i="localization" %}
         </dd></div>
         <div><dt>Back end</dt><dd>
           {% include tech.html n="Node.js" c="#5FA04E" i="nodedotjs" %}
-          {% include tech.html n="Fastify" c="#000000" i="fastify" dk=1 %}
+          {% include tech.html n="Express" c="#000000" i="express" dk=1 %}
           {% include tech.html n="Sails.js" c="#14ACC2" i="sailsdotjs" %}
           {% include tech.html n="Python" c="#3776AB" i="python" %}
           {% include tech.html n="FastAPI" c="#009688" i="fastapi" %}
-          {% include tech.html n="Tornado" c="#3776AB" b="T" %}
+          {% include tech.html n="Tornado" c="#3776AB" i="tornado" %}
           {% include tech.html n="Sequelize" c="#52B0E7" i="sequelize" %}
-          <span class="ti plain">REST APIs</span>
-          <span class="ti plain">microservices</span>
+          {% include tech.html n="REST APIs" c="#E0569A" i="rest" %}
+          {% include tech.html n="microservices" c="#00A3A3" i="microservices" %}
         </dd></div>
         <div><dt>Data</dt><dd>
           {% include tech.html n="Kafka" c="#231F20" i="apachekafka" dk=1 %}
@@ -320,47 +321,49 @@ layout: null
           {% include tech.html n="Redis" c="#FF4438" i="redis" %}
         </dd></div>
         <div><dt>AI</dt><dd>
-          {% include tech.html n="LangGraph" c="#1C3C3C" b="LG" %}
-          {% include tech.html n="FAISS" c="#0467DF" b="F" %}
-          {% include tech.html n="Playwright" c="#2EAD33" b="PW" %}
-          <span class="ti plain">AI agents</span>
-          <span class="ti plain">agent evals</span>
-          <span class="ti plain">RAG</span>
+          {% include tech.html n="AI agents" c="#D9582C" i="agents" %}
+          {% include tech.html n="LangChain" c="#1C3C3C" i="langchain" dk=1 %}
+          {% include tech.html n="LangGraph" c="#1C3C3C" i="langgraph" dk=1 %}
+          {% include tech.html n="RAG" c="#2EAD33" i="rag" %}
+          {% include tech.html n="FAISS" c="#0467DF" i="faiss" %}
+          {% include tech.html n="agent evals" c="#C58A00" i="evals" %}
+          {% include tech.html n="Playwright" c="#2EAD33" i="playwright" %}
         </dd></div>
         <div><dt>Platform &amp; security</dt><dd>
           {% include tech.html n="Google Cloud" c="#4285F4" i="googlecloud" %}
           {% include tech.html n="Kubernetes" c="#326CE5" i="kubernetes" %}
+          {% include tech.html n="Docker" c="#2496ED" i="docker" %}
           {% include tech.html n="OAuth/OIDC" c="#F78C40" i="openid" %}
-          <span class="ti plain">SSO</span>
-          <span class="ti plain">2FA</span>
-          <span class="ti plain">RBAC</span>
-          <span class="ti plain">application security</span>
+          {% include tech.html n="SSO" c="#C58A00" i="sso" %}
+          {% include tech.html n="2FA" c="#2F8FDD" i="twofa" %}
+          {% include tech.html n="RBAC" c="#8B5CF6" i="rbac" %}
+          {% include tech.html n="application security" c="#2EAD33" i="appsec" %}
         </dd></div>
         <div><dt>After hours</dt><dd>
           {% include tech.html n="Swift" c="#F05138" i="swift" %}
-          <span class="ti plain">AppKit</span>
-          <span class="ti plain">DeskSwipe</span>
+          {% include tech.html n="AppKit" c="#000000" i="apple" dk=1 %}
+          {% include tech.html n="DeskSwipe" c="#7C3AED" i="deskswipe" %}
         </dd></div>
       </dl>
     </div>
   </section>
 
-  <section class="contact" id="contact" data-label="contact">
+  <section class="band contact" id="contact" data-label="contact">
     <div class="wrap reveal" data-doc="contact" data-title="Contact: email, LinkedIn, GitHub">
-      <p class="eyebrow">Contact</p>
+      <p class="eyebrow"><span class="dot">●</span> contact</p>
       <h2>Let's talk shop.</h2>
-      <p>Happy to talk about distributed systems, agent design or RAG. Email is best.</p>
-      <a class="mail" href="mailto:adarshpandey.eng@gmail.com">adarshpandey.eng@gmail.com</a>
+      <p class="lead">Happy to talk about distributed systems, agent design or RAG. Email is best.</p>
+      <p class="mail-line"><span class="ps">$</span> mail <a class="mail" href="mailto:adarshpandey.eng@gmail.com">adarshpandey.eng@gmail.com</a><i class="cursor" aria-hidden="true"></i></p>
       <div class="links">
-        <a class="more" href="https://www.linkedin.com/in/pandey-adarsh/" target="_blank" rel="noopener">LinkedIn</a>
-        <a class="more" href="https://github.com/adarsh-pandey07" target="_blank" rel="noopener">GitHub</a>
+        <a class="more" href="https://www.linkedin.com/in/pandey-adarsh/" target="_blank" rel="noopener">linkedin</a>
+        <a class="more" href="https://github.com/adarsh-pandey07" target="_blank" rel="noopener">github</a>
       </div>
     </div>
   </section>
 </main>
 
 <footer class="site">
-  <div class="wrap"><span>© <span id="year">2026</span> Adarsh Pandey</span><span><a href="/blog/">Writing</a> · <a href="/feed.xml">RSS</a></span></div>
+  <div class="wrap"><span><span class="s-model">⚙ adarsh</span> <span class="sep">›</span> <span class="s-path">~/site</span> <span class="sep">›</span> © <span id="year">2026</span> Adarsh Pandey</span><span><a href="/blog/">writing</a> · <a href="/feed.xml">rss</a></span></div>
 </footer>
 
 <script type="application/json" id="postsData">[{% for post in site.posts %}{"id": {{ post.slug | prepend: "w-" | jsonify }}, "title": {{ post.title | jsonify }}, "url": {{ post.url | jsonify }}, "text": {{ post.content | strip_html | normalize_whitespace | jsonify }}}{% unless forloop.last %},{% endunless %}{% endfor %}]</script>
@@ -379,7 +382,7 @@ layout: null
     if (theme) root.setAttribute('data-theme', theme); else root.removeAttribute('data-theme');
     var dark = theme ? theme === 'dark' : media.matches;
     root.setAttribute('data-mode', dark ? 'dark' : 'light');
-    themeBtn.textContent = dark ? 'Light' : 'Dark';
+    themeBtn.textContent = dark ? 'light' : 'dark';
     if (shot) shot.src = '/assets/deskswipe-panel-' + (dark ? 'dark' : 'light') + '.png';
   }
   applyTheme(stored());
@@ -402,7 +405,7 @@ layout: null
         if (!en.isIntersecting) return;
         Object.keys(navLinks).forEach(function (id) { navLinks[id].classList.toggle('active', id === en.target.id); });
         var a = navLinks[en.target.id];
-        if (a && a.parentNode.scrollWidth > a.parentNode.clientWidth) a.parentNode.scrollLeft = a.offsetLeft - 12;
+        if (a && a.parentNode.scrollWidth > a.parentNode.clientWidth) a.parentNode.scrollLeft = a.offsetLeft - a.parentNode.offsetLeft - 12;
       });
     }, { rootMargin: '-40% 0px -55% 0px' });
     Object.keys(navLinks).forEach(function (id) { var el = document.getElementById(id); if (el) spy.observe(el); });
@@ -449,7 +452,7 @@ layout: null
   }
 
   var docs = [];
-  document.querySelectorAll('main [data-doc]').forEach(function (el) {
+  document.querySelectorAll('[data-doc]').forEach(function (el) {
     var sec = el.closest('[data-label]');
     docs.push({ id: el.getAttribute('data-doc'), title: el.getAttribute('data-title'), where: sec ? sec.getAttribute('data-label') : '', el: el, text: words(el) });
   });
@@ -518,14 +521,14 @@ layout: null
     var r = search(query); lastResult = r; renderHow();
     var top = r.hits.slice(0, 3);
     var ok = top.length && top[0].score >= MIN_SCORE;
-    line('tool' + (ok ? '' : ' miss'), '<span class="dot">●</span> <b>Search</b>(<span class="arg">"' + esc(query) + '"</span>)');
+    line('tool' + (ok ? '' : ' miss'), '<span class="dot">●</span> <b>search</b> <span class="arg">"' + esc(query) + '"</span>');
     if (!ok) {
       line('out', 'No passage scores above ' + MIN_SCORE + ', so no answer. Try other words, or <a href="mailto:adarshpandey.eng@gmail.com">email me</a>.');
       return;
     }
     line('out', top.length + (top.length === 1 ? ' passage' : ' passages') + ' · top score ' + top[0].score.toFixed(2));
     top.forEach(function (h, i) {
-      var li = line('hit', '');
+      var li = line('hit' + (i === top.length - 1 ? ' last' : ''), '');
       var pct = Math.round(100 * h.score / top[0].score);
       var href = h.doc.url || '#' + (h.doc.el.id || (h.doc.el.id = 'doc-' + h.doc.id));
       li.innerHTML = '<div class="hit-top"><span class="where">' + (i + 1) + '. ' + esc(h.doc.where) + ' · ' + esc(h.doc.title) + '</span>' +
@@ -541,12 +544,12 @@ layout: null
     if (!el.classList.contains('band')) { el.classList.remove('flash'); void el.offsetWidth; el.classList.add('flash'); }
   }
   // A short spinner while typing, like a terminal agent thinking. Skipped for reduced motion.
-  var GLYPHS = ['·', '✢', '✳', '✶', '✻', '✽'];
+  var GLYPHS = ['⠋', '⠙', '⠹', '⠸', '⠼', '⠴', '⠦', '⠧', '⠇', '⠏'];
   function think(query) {
     if (reduce || !query.trim() || query.charAt(0) === '/') { render(query); return; }
     clearOut(); userLine(query);
-    var s = line('spin', '<span class="g">✻</span> Searching…'), g = s.querySelector('.g'), n = 0;
-    spin = setInterval(function () { g.textContent = GLYPHS[++n % GLYPHS.length]; }, 90);
+    var s = line('spin', '<span class="g">⠋</span> Working… <span class="dim">(esc to interrupt)</span>'), g = s.querySelector('.g'), n = 0;
+    spin = setInterval(function () { g.textContent = GLYPHS[++n % GLYPHS.length]; }, 80);
     timer = setTimeout(function () { render(query); }, 320);
   }
 
@@ -642,7 +645,7 @@ layout: null
   });
   var passed = evalRows.filter(function (r) { return r.rank > 0; }).length;
   var evalBtn = document.getElementById('evalBtn'), evalDrawer = document.getElementById('evalDrawer');
-  evalBtn.innerHTML = 'eval <span class="' + (passed === EVAL.length ? 'pass' : 'fail') + '">' + passed + '/' + EVAL.length + '</span>';
+  evalBtn.innerHTML = 'eval ' + passed + '/' + EVAL.length + (passed === EVAL.length ? ' ✓' : ' ✗');
   evalDrawer.innerHTML = '<p>Run live in your browser on page load: each question must return an expected passage in the top 3.</p>' +
     '<table><tr><th>question</th><th>expected</th><th>rank</th></tr>' +
     evalRows.map(function (r) {

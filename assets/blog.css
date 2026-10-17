@@ -1,0 +1,76 @@
+/* Blog pages: builds on home.css (tokens, top bar, footer) and renders posts
+   the way a terminal agent renders markdown: # headings, amber bullets, boxed code. */
+
+/* Blog index */
+.blog-index { padding-top: 56px; padding-bottom: 96px; }
+.blog-index h1 { font-size: clamp(2.2rem, 1.5rem + 3vw, 3.4rem); line-height: 1.1; font-weight: 700; letter-spacing: -.03em; margin: 0 0 14px; }
+.blog-index h1::before { content: "# "; color: var(--amber); }
+.blog-index .lead { margin-bottom: 34px; }
+.blog-index .hint { margin-top: 18px; }
+
+/* Post */
+.post { max-width: 760px; margin: 0 auto; padding: 56px 28px 96px; }
+.post-meta { display: flex; flex-wrap: wrap; align-items: center; gap: 4px 8px; margin: 0 0 22px; font-size: 13px; }
+.post h1 { font-size: clamp(1.9rem, 1.3rem + 2.6vw, 3rem); line-height: 1.15; font-weight: 700; letter-spacing: -.03em; margin: 0 0 18px; }
+.post h1::before { content: "# "; color: var(--amber); }
+.post .dek { font-size: 15.5px; font-style: italic; color: var(--fg-3); line-height: 1.6; margin: 0 0 36px; padding-bottom: 28px; border-bottom: 1px solid var(--rule); }
+
+.post-body { font-size: 15.5px; line-height: 1.8; color: var(--fg-2); }
+.post-body h2, .post-body h3 { color: var(--fg); line-height: 1.3; letter-spacing: -.02em; }
+.post-body h2 { font-size: 1.4em; font-weight: 700; margin: 2.4em 0 .6em; }
+.post-body h2::before { content: "## "; color: var(--amber); }
+.post-body h3 { font-size: 1.12em; font-weight: 600; margin: 1.9em 0 .5em; }
+.post-body h3::before { content: "### "; color: var(--amber); }
+.post-body p, .post-body ul, .post-body ol { margin: 0 0 1.15em; }
+.post-body ul, .post-body ol { padding-left: 1.6em; }
+.post-body li { margin-bottom: .4em; }
+.post-body ul li::marker { content: "- "; color: var(--amber); }
+.post-body ol li::marker { color: var(--amber); }
+.post-body strong { color: var(--fg); font-weight: 600; }
+.post-body em { color: var(--fg); }
+.post-body a { color: var(--accent-text); text-decoration: underline; text-decoration-color: rgba(217, 88, 44, .45); text-underline-offset: 3px; }
+.post-body a:hover { text-decoration-color: currentColor; }
+.post-body img { display: block; max-width: 100%; height: auto; margin: 1.8em auto; border-radius: var(--radius); border: 1px solid var(--line); background: #fff; }
+.post-body blockquote { margin: 1.5em 0; padding: 2px 0 2px 18px; border-left: 2px solid var(--fg-3); color: var(--fg-3); font-style: italic; }
+.post-body hr { border: 0; border-top: 1px solid var(--rule); margin: 2.6em 0; }
+.post-body code { font: .9em var(--mono); color: var(--teal); background: var(--panel-2); padding: .1em .4em; border-radius: 3px; }
+
+/* Code fences: always a dark terminal box, with Oh My Pi's syntax colours */
+.post-body pre {
+  position: relative; margin: 1.5em 0; padding: 30px 18px 16px; overflow-x: auto;
+  background: #15171c; color: #d4d4d4; border: 1px solid #3d424a; border-radius: 8px;
+  font: 13.5px/1.6 var(--mono);
+}
+.post-body pre::before { content: "code"; position: absolute; top: 7px; left: 18px; font-size: 11.5px; color: #777d88; }
+.post-body .language-python pre::before { content: "python"; }
+.post-body .language-ts pre::before, .post-body .language-typescript pre::before { content: "typescript"; }
+.post-body .language-js pre::before, .post-body .language-javascript pre::before { content: "javascript"; }
+.post-body .language-bash pre::before, .post-body .language-sh pre::before { content: "bash"; }
+.post-body pre code { background: none; padding: 0; color: inherit; font-size: inherit; border-radius: 0; }
+.highlight .c, .highlight .c1, .highlight .cm, .highlight .cs { color: #6a9955; font-style: italic; }
+.highlight .k, .highlight .kd, .highlight .kn, .highlight .kr, .highlight .kc, .highlight .ow { color: #569cd6; }
+.highlight .s, .highlight .s1, .highlight .s2, .highlight .sb, .highlight .sa, .highlight .se, .highlight .si { color: #ce9178; }
+.highlight .mi, .highlight .mf, .highlight .m { color: #b5cea8; }
+.highlight .nf, .highlight .fm { color: #dcdcaa; }
+.highlight .n, .highlight .nx, .highlight .nv, .highlight .na { color: #9cdcfe; }
+.highlight .nc, .highlight .nb, .highlight .kt { color: #4ec9b0; }
+.highlight .o, .highlight .p { color: #d4d4d4; }
+
+.post-body table { width: 100%; border-collapse: collapse; margin: 1.5em 0; font-size: 13.5px; display: block; overflow-x: auto; }
+.post-body th { text-align: left; font-weight: 600; color: var(--amber); border-bottom: 1px solid var(--fg-3); padding: 8px 14px 8px 0; }
+.post-body td { border-bottom: 1px dashed var(--line); padding: 8px 14px 8px 0; vertical-align: top; }
+
+.post-foot { margin-top: 56px; padding-top: 22px; border-top: 1px solid var(--rule); font-size: 14px; color: var(--fg-3); }
+.post-foot .mail-line { font-size: 1.05rem; margin: 6px 0 16px; }
+.post-foot p { margin: 0; }
+
+@media (max-width: 640px) {
+  .post { padding: 36px 16px 72px; }
+  .post-body { font-size: 14.5px; line-height: 1.75; }
+  .post-body pre { font-size: 12.5px; padding: 28px 14px 14px; margin-left: -4px; margin-right: -4px; }
+  .blog-index { padding-top: 36px; }
+}
+@media print {
+  .gnav, .skip, footer.site, .post-foot .mail-line .cursor, .eyebrow { display: none !important; }
+  .post-body pre { background: #fff; color: #000; border-color: #999; }
+}

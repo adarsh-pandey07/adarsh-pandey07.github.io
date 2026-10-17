@@ -3,16 +3,20 @@ layout: page
 title: Writing
 description: Notes from building distributed systems and AI agents.
 ---
-<div class="wrap" style="padding-top:40px;padding-bottom:96px">
-  <p class="label">writing</p>
-  <h1 class="sec-title" style="font-size:var(--step-hero);line-height:.9;letter-spacing:-.045em">Writing.</h1>
-  <p class="lede" style="margin-bottom:48px">Notes from building distributed systems and AI agents. <a href="/feed.xml">RSS</a>.</p>
-  <ul class="post-list">
+<div class="wrap blog-index">
+  <p class="eyebrow"><span class="dot">●</span> ls ~/writing</p>
+  <h1>Writing.</h1>
+  <p class="lead">Notes from building distributed systems and AI agents. Also on <a href="/feed.xml">RSS</a>.</p>
+  <ol class="pick">
     {% for post in site.posts %}
-    <li>
-      <time datetime="{{ post.date | date_to_xmlschema }}">{{ post.date | date: "%b %-d, %Y" }}</time>
-      <div><h3><a href="{{ post.url }}">{{ post.title }}</a></h3><p>{{ post.description }}</p></div>
+    <li class="post-card{% if forloop.first %} sel{% endif %}">
+      <span class="arrow" aria-hidden="true">→</span><span class="n">{{ forloop.index }}.</span>
+      <div>
+        <h3><a href="{{ post.url }}">{{ post.title }}</a> <time datetime="{{ post.date | date_to_xmlschema }}">({{ post.date | date: "%b %-d, %Y" }})</time></h3>
+        <p>{{ post.description }}</p>
+      </div>
     </li>
     {% endfor %}
-  </ul>
+  </ol>
+  <p class="hint">{{ site.posts | size }} {% if site.posts.size == 1 %}post{% else %}posts{% endif %} · newest first</p>
 </div>

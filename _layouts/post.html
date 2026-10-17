@@ -4,39 +4,80 @@
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
 {% seo %}
-<meta name="theme-color" content="#121110">
+<meta name="theme-color" content="#0c0b10">
 <link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 64 64'%3E%3Crect width='64' height='64' fill='%23121110'/%3E%3Crect x='10' y='40' width='44' height='8' fill='%23d9582c'/%3E%3Ctext x='10' y='34' font-family='Menlo,monospace' font-weight='700' font-size='26' fill='%23f2ede4'%3Eap%3C/text%3E%3C/svg%3E">
 {% feed_meta %}
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-<link href="https://fonts.googleapis.com/css2?family=Bricolage+Grotesque:opsz,wght@12..96,600;12..96,700;12..96,800&family=IBM+Plex+Mono:wght@400;500;600&family=Newsreader:ital,opsz,wght@0,6..72,400;0,6..72,500;0,6..72,600;1,6..72,400&display=swap" rel="stylesheet">
-<link rel="stylesheet" href="/assets/site.css">
+<link href="https://fonts.googleapis.com/css2?family=IBM+Plex+Mono:ital,wght@0,400;0,500;0,600;0,700;1,400&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="/assets/home.css">
+<link rel="stylesheet" href="/assets/blog.css">
 <script>try { var t = localStorage.getItem('theme'); if (t) document.documentElement.setAttribute('data-theme', t); } catch (e) {}</script>
 </head>
 <body>
 <a class="skip" href="#main">Skip to content</a>
-<div class="wrap">
-  <div class="topbar">
-    <a class="home" href="/">← adarsh-pandey07.github.io</a>
-    <nav aria-label="Main"><a href="/blog/">writing</a><a class="hide-sm" href="/#work">work</a><a href="/feed.xml">rss</a></nav>
+
+<nav class="gnav" aria-label="Main">
+  <div class="wrap">
+    <a class="gnav-home" href="/"><span class="mini" aria-hidden="true">ap</span>adarsh-pandey</a>
+    <div class="gnav-links">
+      <a href="/#results">results</a>
+      <a href="/#work">work</a>
+      <a href="/blog/" class="active" aria-current="page">writing</a>
+      <a href="/#log">changelog</a>
+      <a href="/#stack">stack</a>
+      <a href="/#contact">contact</a>
+    </div>
+    <div class="gnav-tools">
+      <a class="hide-sm" href="/feed.xml">rss</a>
+      <button class="linkbtn" id="theme" type="button">dark</button>
+    </div>
   </div>
-</div>
+</nav>
+
 <main id="main">
 {% if page.layout == "post" %}
   <article class="post">
-    <div class="post-meta"><time datetime="{{ page.date | date_to_xmlschema }}">{{ page.date | date: "%B %-d, %Y" }}</time><span>{{ content | number_of_words | divided_by: 220 | plus: 1 }} min read</span><span>Adarsh Pandey</span></div>
+    <p class="eyebrow"><span class="dot">●</span> cat ~/writing/{{ page.slug }}.md</p>
+    <p class="post-meta"><span class="s-model">⚙ Adarsh Pandey</span><span class="sep" aria-hidden="true">›</span><time class="s-path" datetime="{{ page.date | date_to_xmlschema }}">{{ page.date | date: "%B %-d, %Y" }}</time><span class="sep" aria-hidden="true">›</span><span class="s-ctx">{{ content | number_of_words | divided_by: 220 | plus: 1 }} min read</span></p>
     <h1>{{ page.title }}</h1>
     {% if page.subtitle %}<p class="dek">{{ page.subtitle }}</p>{% endif %}
     <div class="post-body">{{ content }}</div>
-    <div class="post-foot">Thoughts or corrections? <a href="mailto:adarshpandey.eng@gmail.com">adarshpandey.eng@gmail.com</a> · <a href="/blog/">more writing →</a></div>
+    <div class="post-foot">
+      <p class="bh">Thoughts or corrections?</p>
+      <p class="mail-line"><span class="ps">$</span> mail <a class="mail" href="mailto:adarshpandey.eng@gmail.com">adarshpandey.eng@gmail.com</a><i class="cursor" aria-hidden="true"></i></p>
+      <p><a href="/blog/">← more writing</a> · <a href="/">home</a> · <a href="/feed.xml">rss</a></p>
+    </div>
   </article>
 {% else %}
   {{ content }}
 {% endif %}
 </main>
+
 <footer class="site">
-  <div class="wrap"><span>© {{ site.time | date: "%Y" }} Adarsh Pandey</span><span><a href="/feed.xml">rss</a></span></div>
+  <div class="wrap"><span><span class="s-model">⚙ adarsh</span> <span class="sep">›</span> <span class="s-path">~/writing</span> <span class="sep">›</span> © {{ site.time | date: "%Y" }} Adarsh Pandey</span><span><a href="/">home</a> · <a href="/feed.xml">rss</a></span></div>
 </footer>
+
+<script>
+(function () {
+  var root = document.documentElement, btn = document.getElementById('theme');
+  var media = window.matchMedia('(prefers-color-scheme: dark)');
+  function stored() { try { return localStorage.getItem('theme'); } catch (e) { return null; } }
+  function apply(theme) {
+    if (theme) root.setAttribute('data-theme', theme); else root.removeAttribute('data-theme');
+    var dark = theme ? theme === 'dark' : media.matches;
+    root.setAttribute('data-mode', dark ? 'dark' : 'light');
+    btn.textContent = dark ? 'light' : 'dark';
+  }
+  apply(stored());
+  media.addEventListener('change', function () { apply(stored()); });
+  btn.addEventListener('click', function () {
+    var next = root.getAttribute('data-mode') === 'dark' ? 'light' : 'dark';
+    try { localStorage.setItem('theme', next); } catch (e) {}
+    apply(next);
+  });
+})();
+</script>
 {% include analytics.html %}
 </body>
 </html>
