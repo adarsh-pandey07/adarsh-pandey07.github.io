@@ -18,4 +18,4 @@ exclude:
   - vendor
 
 # GoatCounter site code (the part before .goatcounter.com). Leave empty to turn analytics off.
-goatcounter:
+goatcounter: adarshpandey
