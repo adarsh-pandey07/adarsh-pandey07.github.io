@@ -1,7 +1,7 @@
 ---
 layout: post
 title: "I read the source of 12 coding agents. Don't trust the README"
-subtitle: "Dead code, permissive defaults, and a date that breaks the cache: what the docs don't tell you about Claude Code, Codex, Aider and nine others."
+subtitle: "Dead code, permissive defaults, and a date that breaks the cache: what the docs don't tell you about the harnesses behind Claude Code, Codex, Aider and nine others."
 description: "What I found reading the source of 12 AI coding agents: a fuzzy-match fallback that never runs, five agents that approve every command by default, and why the prompt cache decides the bill."
 ---
 
@@ -17,7 +17,7 @@ Line 183 of Aider's `editblock_coder.py` is a bare `return`:
 
 Everything after it is the fuzzy-match fallback, the code meant to rescue an edit when the model's copy of a file doesn't quite match the real one. It can never run. ([source, at the commit I read](https://github.com/Aider-AI/aider/blob/5dc9490bb35f9729ef2c95d00a19ccd30c26339c/aider/coders/editblock_coder.py#L183))
 
-It turned up while I was reading the source of 12 AI coding agents, and it set the tone for the rest of the study. I did the reading with AI agents, one per codebase, and I'll explain how that worked further down. The core loop everyone writes about turned out to be the same in all twelve. Where they differ is in things you only see in the code: defaults, dead branches, and what sits in front of the prompt cache.
+It turned up while I was reading the source of 12 AI coding agents, and it set the tone for the rest of the study. I did the reading with AI agents, one per codebase, and I'll explain how that worked further down. The core loop everyone writes about turned out to be the same in all twelve. Where they differ is in the harness around that loop, in things you only see in the code: defaults, dead branches, and what sits in front of the prompt cache.
 
 ## Why I did this
 
@@ -26,6 +26,14 @@ I wanted to build my own minimal coding agent. Before writing any of it, I wante
 So I picked a single request, *"add a failing test for X, then fix it"*, and followed it through each agent: entry point, prompt assembly, model call, tool call, result, next turn, stop.
 
 The twelve: Claude Code, Codex CLI, Pi, Oh My Pi, opencode, DeepSeek Harness, Exo, Mini-SWE-Agent, Goose, Aider, OpenHands and Hermes Agent. Eleven are open source and I read them at pinned commits. Claude Code is closed, so for that one I used the official docs and the structure of my own session logs. I didn't use the leaked source.
+
+## Agent, harness, model
+
+A coding agent is two things: a model and a harness. The model only predicts text. The harness is everything around it: the loop, the prompt, the tools that read and edit files and run commands, what stays in context, what needs your permission, and the hooks that extend it. Claude Code, Codex and Aider are harnesses. Point them at a different model and they're still the same harness.
+
+![The parts of a coding harness and how they connect](/assets/blog/harness-anatomy.png)
+
+This post is about the harness, because that's the part you can read in the source and the part you'd build yourself.
 
 ## How I did it, with AI help
 
@@ -44,8 +52,6 @@ This part isn't news. Thorsten Ball showed in 2025 that [a working coding agent 
 What I saw matches. Every agent runs the same loop: send the conversation to the model, run whatever tools it asks for, append the results, repeat. In 10 of the 12, a reply with no tool calls means the agent is done.
 
 Mini-SWE-Agent does it in 37 lines with a single tool, bash, and its README claims over 74% on SWE-bench Verified. Pi's whole minimal core is about 4,450 lines.
-
-![The parts of a coding harness and how they connect](/assets/blog/harness-anatomy.png)
 
 So I stopped looking at the loop and looked at everything around it.
 
