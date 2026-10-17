@@ -1,0 +1,1 @@
+<span class="ti{% if include.dk %} dk{% endif %}"{% if include.b %} data-b="{{ include.b }}"{% endif %} style="--c:{{ include.c }}">{% if include.i %}{% capture icon %}icons/{{ include.i }}.svg{% endcapture %}{% include {{ icon }} %}{% endif %}{{ include.n }}</span>

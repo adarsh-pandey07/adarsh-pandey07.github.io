@@ -12,292 +12,83 @@ layout: null
 <meta property="og:description" content="Full-stack and AI engineer: distributed back ends, Angular, and AI agents that help engineers ship.">
 <meta property="og:url" content="https://adarsh-pandey07.github.io/">
 <meta property="og:type" content="profile">
-<meta name="theme-color" content="#121110">
+<meta name="theme-color" content="#000000">
 <link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 64 64'%3E%3Crect width='64' height='64' fill='%23121110'/%3E%3Crect x='10' y='40' width='44' height='8' fill='%23d9582c'/%3E%3Ctext x='10' y='34' font-family='Menlo,monospace' font-weight='700' font-size='26' fill='%23f2ede4'%3Eap%3C/text%3E%3C/svg%3E">
 <link rel="alternate" type="application/atom+xml" title="Writing" href="/feed.xml">
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-<link href="https://fonts.googleapis.com/css2?family=Bricolage+Grotesque:opsz,wght@12..96,600;12..96,700;12..96,800&family=IBM+Plex+Mono:wght@400;500;600&family=Newsreader:ital,opsz,wght@0,6..72,400;0,6..72,500;0,6..72,600;1,6..72,400&display=swap" rel="stylesheet">
-<link rel="stylesheet" href="/assets/site.css">
-<style>
-  /* ───── Hero (always dark) ───── */
-  .hero { background: var(--night); color: var(--cream); position: relative; overflow: hidden; }
-  .hero::after {
-    content: ""; position: absolute; inset: 0; pointer-events: none; opacity: .5;
-    background-image: linear-gradient(rgba(242,237,228,.045) 1px, transparent 1px), linear-gradient(90deg, rgba(242,237,228,.045) 1px, transparent 1px);
-    background-size: 48px 48px;
-  }
-  .hero .wrap { position: relative; z-index: 1; }
-  .hero-grid { display: grid; grid-template-columns: 1.1fr 1fr; gap: 56px; align-items: center; padding: 56px 0 88px; }
-  .hello { font: 500 14px/1.4 var(--mono); color: var(--signal); margin: 0 0 18px; }
-  .hero h1 { font: 800 var(--step-hero)/.9 var(--display); letter-spacing: -.045em; margin: 0 0 28px; }
-  .hero h1 span { display: block; }
-  .hero h1 .last { color: var(--signal); }
-  .pitch { font-size: var(--step-1); line-height: 1.5; max-width: 30em; margin: 0 0 32px; color: #d9d2c5; }
-  .pitch b { color: var(--cream); font-weight: 500; box-shadow: inset 0 -.3em 0 rgba(217,88,44,.55); }
-  .ctas { display: flex; flex-wrap: wrap; gap: 12px; }
-
-  /* Ask my work */
-  .ask { background: var(--night-2); border: 2px solid #3a3631; box-shadow: 8px 8px 0 var(--signal); font: 13.5px/1.5 var(--mono); color: #d9d2c5; }
-  .ask-head { display: flex; justify-content: space-between; gap: 12px; padding: 10px 14px; border-bottom: 2px solid #3a3631; color: #9a9387; font-size: 12px; }
-  .ask-head b { color: var(--cream); font-weight: 600; }
-  .ask form { display: flex; border-bottom: 2px solid #3a3631; }
-  .ask input { flex: 1; min-width: 0; background: transparent; border: 0; color: var(--cream); font: 500 16px/1 var(--mono); padding: 16px 14px; outline: none; }
-  .ask input::placeholder { color: #8d867b; }
-  .ask form .kbd { align-self: center; margin-right: 14px; color: #9a9387; }
-  .ask-body { padding: 12px 14px 4px; min-height: 280px; }
-  .intro { color: #b3ac9f; margin: 2px 0 12px; font-size: 13px; }
-  .chips { display: flex; flex-wrap: wrap; gap: 8px; margin-bottom: 10px; }
-  .chip { background: transparent; border: 1px solid #4a4640; color: #d9d2c5; font: 12.5px/1.3 var(--mono); padding: 6px 10px; cursor: pointer; text-align: left; }
-  .chip:hover { border-color: var(--signal); color: var(--cream); }
-  .hits { list-style: none; margin: 0; padding: 0; }
-  .hit { padding: 10px 0 12px; border-top: 1px solid #262320; }
-  .hit:first-child { border-top: 0; padding-top: 2px; }
-  .hit-top { display: grid; grid-template-columns: 1fr auto; gap: 10px; align-items: center; font-size: 12px; color: #9a9387; }
-  .hit-top .where { white-space: nowrap; overflow: hidden; text-overflow: ellipsis; }
-  .score { display: flex; align-items: center; gap: 8px; font-variant-numeric: tabular-nums; }
-  .bar { width: 72px; height: 6px; background: #262320; }
-  .bar i { display: block; height: 100%; background: var(--signal); }
-  .hit a { display: block; color: var(--cream); text-decoration: none; margin-top: 4px; font-size: 13.5px; }
-  .hit a:hover { color: var(--cream); }
-  .hit a:hover .go { color: var(--signal); }
-  .hit mark { background: rgba(217,88,44,.35); color: var(--cream); padding: 0 1px; }
-  .go { color: #9a9387; white-space: nowrap; }
-  .none { color: #b3ac9f; padding: 4px 0 12px; }
-  .ask-foot { display: flex; flex-wrap: wrap; justify-content: space-between; gap: 6px 14px; padding: 9px 14px; border-top: 2px solid #3a3631; font-size: 12px; color: #9a9387; }
-  .ask-foot .linkbtn { color: #b3ac9f; text-decoration: underline; text-decoration-color: #4a4640; text-underline-offset: 3px; opacity: 1; }
-  .ask-foot .linkbtn:hover { color: var(--cream); }
-  .pass { color: #6fd39a; }
-  .fail { color: #ff8a6b; }
-  .drawer { border-top: 2px solid #3a3631; padding: 10px 14px 12px; font-size: 12px; color: #b3ac9f; max-height: 260px; overflow: auto; }
-  .drawer[hidden] { display: none; }
-  .drawer table { width: 100%; border-collapse: collapse; font-variant-numeric: tabular-nums; }
-  .drawer td, .drawer th { text-align: left; padding: 4px 8px 4px 0; border-bottom: 1px solid #262320; vertical-align: top; font-weight: 400; }
-  .drawer th { color: #9a9387; }
-  .drawer p { margin: 0 0 8px; }
-  .sr { position: absolute; width: 1px; height: 1px; overflow: hidden; clip: rect(0 0 0 0); white-space: nowrap; }
-
-  /* ───── Sections ───── */
-  section { padding: 96px 0; border-bottom: 2px solid var(--fg); }
-  .sec-head { display: grid; grid-template-columns: 200px 1fr; gap: 32px; margin-bottom: 48px; }
-  .sec-head .label { padding-top: 12px; }
-  .sec-head .label small { display: block; color: var(--fg-3); margin-top: 2px; }
-
-  /* Now */
-  .now { padding: 40px 0; background: var(--bg-2); border-bottom: 2px solid var(--fg); }
-  .now .wrap { display: grid; grid-template-columns: 200px 1fr; gap: 32px; }
-  .now ul { margin: 0; padding: 0; list-style: none; display: grid; gap: 8px; font-size: var(--step-1); }
-  .now li::before { content: "→ "; color: var(--accent-text); font-family: var(--mono); }
-  .now time { display: block; font: 12.5px var(--mono); color: var(--fg-3); margin-top: 4px; }
-
-  /* Results */
-  .numbers { display: grid; grid-template-columns: repeat(6, 1fr); border-top: 2px solid var(--fg); }
-  .n { padding: 28px 24px 26px 0; border-bottom: 1px solid var(--line); }
-  .n.big { grid-column: span 3; }
-  .n.small { grid-column: span 2; }
-  .n.big + .n.big, .n.small + .n.small { padding-left: 24px; border-left: 1px solid var(--line); }
-  .n b { display: block; font: 800 clamp(3rem, 1.6rem + 5vw, 6.5rem)/.9 var(--display); letter-spacing: -.04em; margin-bottom: 12px; font-variant-numeric: tabular-nums; }
-  .n.small b { font-size: clamp(2.4rem, 1.6rem + 2.6vw, 4rem); }
-  .n b em { font-style: normal; color: var(--accent-text); }
-  .n p { margin: 0; color: var(--fg-2); max-width: 24em; }
-  .n .how { display: block; font: 13px/1.5 var(--mono); color: var(--fg-3); margin-top: 6px; }
-
-  /* Work */
-  .project { display: grid; grid-template-columns: 1fr 1fr; gap: 64px; align-items: start; padding: 56px 0; border-top: 1px solid var(--line); }
-  .project:first-of-type { border-top: 0; padding-top: 0; align-items: center; }
-  .project.flip .p-text { order: 2; }
-  .p-meta { font: 500 13px/1.4 var(--mono); color: var(--fg-3); display: flex; flex-wrap: wrap; gap: 8px 14px; margin-bottom: 14px; }
-  .badge { color: var(--night); background: var(--signal); padding: 3px 8px; font-weight: 600; }
-  .badge.os { background: var(--fg); color: var(--bg); }
-  .project h3 { font: 800 var(--step-3)/1 var(--display); letter-spacing: -.03em; margin: 0 0 18px; }
-  .project p { color: var(--fg-2); margin: 0 0 14px; }
-  .stackline { font: 13px/1.6 var(--mono); color: var(--fg-3); margin-top: 16px; }
-  .textlinks { display: flex; gap: 22px; flex-wrap: wrap; margin-top: 20px; font: 600 14px/1 var(--mono); }
-  .textlinks a { text-decoration: none; border-bottom: 2px solid var(--signal); padding-bottom: 4px; }
-  .case { display: grid; grid-template-columns: 6.5em 1fr; gap: 10px 18px; margin: 0; }
-  .case dt { font: 600 12px/2 var(--mono); text-transform: uppercase; letter-spacing: .06em; color: var(--accent-text); }
-  .case dd { margin: 0; color: var(--fg-2); }
-  .case dd strong { color: var(--fg); font-weight: 600; }
-  .shot { position: relative; justify-self: center; }
-  .shot img { display: block; width: min(380px, 100%); height: auto; transform: rotate(-2.5deg); border: 2px solid var(--fg); box-shadow: 10px 10px 0 var(--signal); background: var(--bg); }
-  .sticker { position: absolute; right: -14px; bottom: -22px; transform: rotate(4deg); background: var(--fg); color: var(--bg); font: 600 13px/1.3 var(--mono); padding: 8px 12px; white-space: nowrap; }
-  .flow { border: 2px solid var(--fg); background: var(--bg-2); padding: 26px 22px 20px; font: 13px/1.35 var(--mono); position: relative; margin-top: 8px; }
-  .flow-title { position: absolute; top: -11px; left: 14px; background: var(--bg); padding: 0 8px; color: var(--fg-3); font-size: 12px; }
-  .steps { display: flex; flex-wrap: wrap; align-items: center; gap: 10px 8px; }
-  .step { border: 1.5px solid var(--fg); background: var(--bg); padding: 7px 10px; }
-  .step.gate { border-color: var(--accent-text); color: var(--accent-text); font-weight: 600; }
-  .step.out { background: var(--fg); color: var(--bg); }
-  .arrow { color: var(--fg-3); }
-  .flow-note { margin-top: 14px; color: var(--fg-3); font-size: 12.5px; }
-
-  /* Writing */
-  .writing-more { margin: 22px 0 0; font: 600 14px var(--mono); }
-
-  /* Changelog */
-  .log { border-top: 2px solid var(--fg); }
-  .rel { display: grid; grid-template-columns: 200px 1fr; gap: 32px; padding: 36px 0; border-bottom: 1px solid var(--line); }
-  .rel .v { font: 800 64px/.9 var(--display); letter-spacing: -.04em; color: transparent; -webkit-text-stroke: 1.5px var(--fg); }
-  .rel.now-role .v { color: var(--signal); -webkit-text-stroke: 0; }
-  .rel .d { font: 13px/1.5 var(--mono); color: var(--fg-3); margin-top: 10px; }
-  .rel h3 { font: 600 var(--step-2)/1.2 var(--text); margin: 0 0 2px; }
-  .rel .org { font: 13px/1.5 var(--mono); color: var(--fg-3); margin: 0 0 16px; }
-  .rel ul { list-style: none; margin: 0; padding: 0; }
-  .rel li { display: grid; grid-template-columns: 92px 1fr; gap: 12px; padding: 5px 0; color: var(--fg-2); }
-  .k { font: 600 11.5px/2.2 var(--mono); text-transform: uppercase; letter-spacing: .06em; }
-  .k.add { color: var(--green); } .k.fix { color: var(--accent-text); } .k.sec { color: var(--blue); } .k.chg { color: var(--amber); }
-  .learned { margin: 16px 0 0; padding-left: 16px; border-left: 3px solid var(--signal); font-style: italic; color: var(--fg); }
-  .learned span { display: block; font: normal 12px var(--mono); color: var(--fg-3); margin-top: 4px; }
-
-  /* Stack */
-  .stack { display: grid; grid-template-columns: 200px 1fr; gap: 12px 32px; margin: 0; border-top: 2px solid var(--fg); padding-top: 24px; }
-  .stack dt { font: 600 12.5px/2 var(--mono); text-transform: uppercase; letter-spacing: .06em; color: var(--accent-text); }
-  .stack dd { margin: 0; padding-bottom: 12px; border-bottom: 1px solid var(--line); }
-
-  /* Contact */
-  .contact { background: var(--night); color: var(--cream); border-bottom: 0; }
-  .contact .label { color: var(--signal); }
-  .contact .sec-title { font-size: clamp(2.6rem, 1.4rem + 5vw, 6rem); }
-  .contact p { color: #c3bcb0; font-size: var(--step-1); max-width: 32em; margin: 18px 0 0; }
-  .mail { display: inline-block; margin-top: 30px; font: 700 clamp(1.3rem, .8rem + 2.4vw, 2.6rem)/1.2 var(--display); letter-spacing: -.02em; text-decoration: none; border-bottom: 4px solid var(--signal); word-break: break-all; }
-  .mail:hover { color: var(--signal); }
-  .contact .ctas { margin-top: 36px; }
-
-  .flash { animation: flash 1.6s ease-out; }
-  @keyframes flash { 0%, 30% { background: rgba(217,88,44,.22); } 100% { background: transparent; } }
-
-  @media (max-width: 900px) {
-    .hero-grid { grid-template-columns: 1fr; gap: 44px; padding: 40px 0 64px; }
-    .sec-head, .rel, .now .wrap, .stack { grid-template-columns: 1fr; gap: 8px; }
-    .project, .project.flip { grid-template-columns: 1fr; gap: 32px; }
-    .project.flip .p-text { order: 0; }
-    .numbers { grid-template-columns: 1fr 1fr; }
-    .n.big, .n.small { grid-column: span 1; padding-left: 0 !important; border-left: 0 !important; }
-    .n:nth-child(even) { padding-left: 20px !important; border-left: 1px solid var(--line) !important; }
-    .rel .v { font-size: 48px; }
-    section { padding: 72px 0; }
-  }
-  @media (max-width: 560px) {
-    .numbers { grid-template-columns: 1fr; }
-    .n:nth-child(even) { padding-left: 0 !important; border-left: 0 !important; }
-    .rel li, .case { grid-template-columns: 1fr; gap: 0; }
-    .case dd { margin-bottom: 10px; }
-    .sticker { right: 0; }
-    .ask-body { min-height: 0; }
-    .ask-head span:last-child { display: none; }
-    section { padding: 56px 0; }
-  }
-  @media print {
-    .hero::after, .ask, .shot, .flow, .now, .ctas, .textlinks { display: none !important; }
-    .hero, .contact { background: #fff; color: #000; }
-    .hero-grid { padding: 0; display: block; }
-    .hero h1 { font-size: 40pt; }
-    .hero h1 .last { color: #000; }
-    .pitch, .contact p { color: #000; }
-    section { padding: 18px 0; break-inside: avoid-page; }
-    .project { padding: 14px 0; }
-    .mail { font-size: 14pt; border: 0; }
-  }
-
-  /* ───── Wayfinding: sticky section bar, big numbers, alternating bands ───── */
-  html { scroll-padding-top: 64px; }
-  .secnav { position: sticky; top: 0; z-index: 50; background: var(--bg); border-bottom: 2px solid var(--fg); font: 500 13px/1 var(--mono); }
-  .secnav .wrap { display: flex; align-items: center; justify-content: space-between; gap: 20px; height: 48px; }
-  .secnav-home { font: 700 15px/1 var(--display); letter-spacing: -.01em; text-decoration: none; white-space: nowrap; }
-  .secnav-links { display: flex; gap: 4px; overflow-x: auto; scrollbar-width: none; }
-  .secnav-links::-webkit-scrollbar { display: none; }
-  .secnav-links a { display: flex; align-items: center; gap: 6px; padding: 8px 10px; text-decoration: none; color: var(--fg-2); white-space: nowrap; border-bottom: 3px solid transparent; }
-  .secnav-links a span { color: var(--fg-3); font-size: 11px; }
-  .secnav-links a:hover { color: var(--fg); }
-  .secnav-links a.active { color: var(--fg); border-bottom-color: var(--signal); }
-  .secnav-links a.active span { color: var(--accent-text); }
-  .label .num { display: block; font: 800 clamp(3.2rem, 2rem + 4vw, 5.5rem)/.85 var(--display); letter-spacing: -.04em; color: transparent; -webkit-text-stroke: 1.5px var(--fg); margin-bottom: 10px; }
-  .contact .label .num { -webkit-text-stroke-color: var(--signal); }
-  section.alt { background: var(--bg-2); }
-  section.alt .flow { background: var(--bg); }
-  section.alt .flow-title { background: var(--bg-2); }
-  @media (max-width: 640px) {
-    .secnav-home { display: none; }
-    .secnav .wrap { padding: 0 6px; }
-    .label .num { font-size: 3rem; }
-  }
-  @media print { .secnav { display: none !important; } }
-</style>
+<link href="https://fonts.googleapis.com/css2?family=IBM+Plex+Mono:wght@400;500;600&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="/assets/home.css">
+<script>document.documentElement.classList.add('js');</script>
 </head>
 <body>
 <a class="skip" href="#main">Skip to content</a>
 
+<nav class="gnav" aria-label="Main">
+  <div class="wrap">
+    <a class="gnav-home" href="#top">Adarsh Pandey</a>
+    <div class="gnav-links">
+      <a href="#results">Results</a>
+      <a href="#work">Work</a>
+      <a href="#writing">Writing</a>
+      <a href="#log">Changelog</a>
+      <a href="#stack">Stack</a>
+      <a href="#contact">Contact</a>
+    </div>
+    <div class="gnav-tools">
+      <button class="linkbtn hide-sm" type="button" id="printCv">Résumé</button>
+      <button class="linkbtn" id="theme" type="button">Dark</button>
+    </div>
+  </div>
+</nav>
+
 <header class="hero" id="top">
   <div class="wrap">
-    <div class="topbar">
-      <a class="home" href="/">adarsh-pandey07.github.io</a>
-      <nav aria-label="Main">
-        <a class="hide-sm" href="#work">work</a>
-        <a class="hide-sm" href="#writing">writing</a>
-        <a class="hide-sm" href="#log">changelog</a>
-        <button class="linkbtn hide-sm" type="button" id="printCv">résumé</button>
-        <button class="linkbtn" id="theme" type="button">dark</button>
-      </nav>
+    <p class="prompt" aria-hidden="true"><span>~/adarsh</span> $ whoami<i class="cursor"></i></p>
+    <p class="eyebrow">Software Engineer (SDE-2) · OpenText · Bengaluru</p>
+    <h1>Adarsh Pandey<span>.</span></h1>
+    <p class="tagline">Full-stack &amp; AI engineer.</p>
+    <p class="pitch">I build <b>full stack products on distributed back ends</b>, and <b>the AI agents that help engineers ship them</b>. 5+ years on a multi-tenant, event-driven SaaS.</p>
+    <div class="links">
+      <a class="pill" href="mailto:adarshpandey.eng@gmail.com">Email me</a>
+      <a class="more" href="https://www.linkedin.com/in/pandey-adarsh/" target="_blank" rel="noopener">LinkedIn</a>
+      <a class="more" href="https://github.com/adarsh-pandey07" target="_blank" rel="noopener">GitHub</a>
     </div>
 
-    <div class="hero-grid">
-      <div>
-        <p class="hello">// software engineer (SDE-2) · OpenText · Bengaluru</p>
-        <h1><span>Adarsh</span><span class="last">Pandey</span></h1>
-        <p class="pitch">Full-stack &amp; AI engineer. I build <b>full stack products on distributed back ends</b>, and <b>the AI agents that help engineers ship them</b>. 5+ years on a multi-tenant, event-driven SaaS.</p>
-        <div class="ctas">
-          <a class="btn solid" href="mailto:adarshpandey.eng@gmail.com">email me →</a>
-          <a class="btn" href="https://www.linkedin.com/in/pandey-adarsh/" target="_blank" rel="noopener">linkedin</a>
-          <a class="btn" href="https://github.com/adarsh-pandey07" target="_blank" rel="noopener">github</a>
-        </div>
-      </div>
-
-      <div class="ask" role="search">
-        <div class="ask-head"><span><b>ask my work</b> · BM25 retrieval</span><span>runs in your browser</span></div>
-        <form id="askForm" autocomplete="off">
-          <label for="q" class="sr">Ask a question about my work</label>
-          <input id="q" type="search" placeholder="ask about my work…" spellcheck="false">
-          <span class="kbd" aria-hidden="true">/</span>
-        </form>
-        <div class="ask-body" aria-live="polite">
-          <div id="askIntro">
-            <p class="intro">Ask anything about my work. Answers are quoted from this site and my writing, ranked by BM25, with the score and a link to the source. No language model, so nothing gets made up: no match, no answer.</p>
-            <div class="chips">
-              <button class="chip" type="button">how big was the OpenSearch migration?</button>
-              <button class="chip" type="button">what does the test agent do?</button>
-              <button class="chip" type="button">which awards?</button>
-              <button class="chip" type="button">kafka experience</button>
-            </div>
+    <div class="spot" role="search">
+      <div class="term-bar" aria-hidden="true"><i></i><i></i><i></i><span>ask-my-work — bm25, no LLM</span></div>
+      <form id="askForm" autocomplete="off">
+        <span class="ps1" aria-hidden="true">$ ask</span>
+        <label for="q" class="sr">Ask a question about my work</label>
+        <input id="q" type="search" placeholder="Ask about my work" spellcheck="false">
+        <span class="kbd" aria-hidden="true">/</span>
+      </form>
+      <div class="spot-body" aria-live="polite">
+        <div id="askIntro">
+          <p class="intro">Answers are quoted from this site and my writing, ranked by BM25, with the score and a link to the source. No language model, so nothing gets made up: no match, no answer.</p>
+          <div class="chips">
+            <button class="chip" type="button">how big was the OpenSearch migration?</button>
+            <button class="chip" type="button">what does the test agent do?</button>
+            <button class="chip" type="button">which awards?</button>
+            <button class="chip" type="button">kafka experience</button>
           </div>
-          <ol class="hits" id="hits"></ol>
         </div>
-        <div class="ask-foot">
-          <button class="linkbtn" type="button" id="evalBtn" aria-expanded="false" aria-controls="evalDrawer">eval: running…</button>
-          <button class="linkbtn" type="button" id="howBtn" aria-expanded="false" aria-controls="howDrawer">how it works</button>
-        </div>
-        <div class="drawer" id="evalDrawer" hidden></div>
-        <div class="drawer" id="howDrawer" hidden></div>
+        <ol class="hits" id="hits"></ol>
       </div>
+      <div class="spot-foot">
+        <button class="linkbtn" type="button" id="evalBtn" aria-expanded="false" aria-controls="evalDrawer">eval: running…</button>
+        <button class="linkbtn" type="button" id="howBtn" aria-expanded="false" aria-controls="howDrawer">How it works</button>
+      </div>
+      <div class="drawer" id="evalDrawer" hidden></div>
+      <div class="drawer" id="howDrawer" hidden></div>
     </div>
   </div>
 </header>
 
 <main id="main">
-  <nav class="secnav" aria-label="Sections">
-    <div class="wrap">
-      <a class="secnav-home" href="#top">Adarsh Pandey</a>
-      <div class="secnav-links">
-        <a href="#results"><span>01</span>results</a>
-        <a href="#work"><span>02</span>work</a>
-        <a href="#writing"><span>03</span>writing</a>
-        <a href="#log"><span>04</span>changelog</a>
-        <a href="#stack"><span>05</span>stack</a>
-        <a href="#contact"><span>06</span>contact</a>
-      </div>
-    </div>
-  </nav>
   <div class="now" data-doc="now" data-title="What I'm doing now" data-label="now">
     <div class="wrap">
-      <div class="label">now<time datetime="2026-10">updated Oct 2026</time></div>
+      <p class="eyebrow">Now<time datetime="2026-10">updated Oct 2026</time></p>
       <ul>
         <li>Building AI agents at OpenText: test automation, defect triage, agent harnesses, and evaluating agents across models.</li>
         <li>Writing up what I learned reading the source code of 12 coding agents.</li>
@@ -306,54 +97,53 @@ layout: null
     </div>
   </div>
 
-  <section id="results" data-label="01 / results">
+  <section class="band" id="results" data-label="results">
     <div class="wrap">
-      <div class="sec-head">
-        <div class="label"><span class="num">01</span>results<small>on Core Share</small></div>
-        <div>
-          <h2 class="sec-title">Numbers, not adjectives.</h2>
-          <p class="lede">Core Share is OpenText's multi-tenant, event-driven SaaS for secure file sharing, on Google Cloud and Kubernetes. My focus there: data consistency, search at scale and large-file handling.</p>
-        </div>
+      <div class="head reveal">
+        <p class="eyebrow">Results on Core Share</p>
+        <h2>Numbers, not adjectives.</h2>
+        <p>Core Share is OpenText's multi-tenant, event-driven SaaS for secure file sharing, on Google Cloud and Kubernetes. My focus there: data consistency, search at scale and large-file handling.</p>
       </div>
-      <div class="numbers">
-        <div class="n big" data-doc="r-migration" data-title="Elasticsearch to OpenSearch migration"><b>8<em>TB</em></b><p>moved from Elasticsearch to OpenSearch with zero data loss.<span class="how">engine-agnostic client · dual-write · staged cutover</span></p></div>
-        <div class="n big" data-doc="r-reindex" data-title="Full reindex time"><b>~3mo<em>→</em>min</b><p>a full reindex went from about 3 months to minutes.<span class="how">targeted reindexing</span></p></div>
-        <div class="n small" data-doc="r-tests" data-title="Test automation"><b>2.5<em>×</em></b><p>monthly test automation, from my E2E test agent.</p></div>
-        <div class="n small" data-doc="r-triage" data-title="Defect triage time"><b>~70<em>%</em></b><p>less defect-triage time, from the RAG pipeline I built.</p></div>
-        <div class="n small" data-doc="r-angular" data-title="AngularJS to Angular"><b>652<em>K+</em></b><p>line app: I worked on its AngularJS-to-Angular migration.</p></div>
+      <div class="bento">
+        <div class="tile wide reveal" data-doc="r-migration" data-title="Elasticsearch to OpenSearch migration"><b>8<em>TB</em></b><p>moved from Elasticsearch to OpenSearch with zero data loss.<span class="how">engine-agnostic client · dual-write · staged cutover</span></p></div>
+        <div class="tile wide reveal" data-doc="r-reindex" data-title="Full reindex time"><b>~3mo<em>→</em>min</b><p>a full reindex went from about 3 months to minutes.<span class="how">targeted reindexing</span></p></div>
+        <div class="tile reveal" data-doc="r-tests" data-title="Test automation"><b>2.5<em>×</em></b><p>monthly test automation, from my E2E test agent.</p></div>
+        <div class="tile reveal" data-doc="r-triage" data-title="Defect triage time"><b>~70<em>%</em></b><p>less defect-triage time, from the RAG pipeline I built.</p></div>
+        <div class="tile reveal" data-doc="r-angular" data-title="AngularJS to Angular"><b>652<em>K+</em></b><p>line app: I worked on its AngularJS-to-Angular migration.</p></div>
       </div>
     </div>
   </section>
 
-  <section class="alt" id="work" data-label="02 / work">
+  <section class="band alt" id="work" data-label="work">
     <div class="wrap">
-      <div class="sec-head">
-        <div class="label"><span class="num">02</span>work<small>side project + agents</small></div>
-        <div>
-          <h2 class="sec-title">Things I've built.</h2>
-          <p class="lede">My rule for agents: <em>LLMs miss a rule or two, so the important ones get checked in code.</em> That's why the agents below use gated phases, verification gates and reviewer sub-agents.</p>
-        </div>
+      <div class="head reveal">
+        <p class="eyebrow">Work</p>
+        <h2>Things I've built.</h2>
+        <p>My rule for agents: <em>LLMs miss a rule or two, so the important ones get checked in code.</em> That's why the agents below use gated phases, verification gates and reviewer sub-agents.</p>
       </div>
+      <div class="work">
+        <article class="tile project full reveal" id="deskswipe" data-doc="p-deskswipe" data-title="DeskSwipe">
+          <div>
+            <div class="meta"><span class="tag">Open source</span><span>macOS · Swift · MIT</span></div>
+            <h3>DeskSwipe</h3>
+            <p>Windows-style "show desktop" for the Mac. Three fingers down: every window minimizes. Three fingers up: exactly those windows come back, in order. Windows you minimized yourself stay put.</p>
+            <p>It remembers only what the last swipe hid, and forgets any window you bring back from the Dock, close, or quit.</p>
+            <div class="stackline">Swift · AppKit · SwiftUI · Accessibility API · MultitouchSupport · Swift Testing</div>
+            <div class="links"><a class="pill" href="https://github.com/DeskSwipe/DeskSwipe/releases/latest" target="_blank" rel="noopener">Download</a><a class="more" href="https://github.com/DeskSwipe/DeskSwipe" target="_blank" rel="noopener">Source</a></div>
+          </div>
+          <div class="shot"><img id="ds-shot" src="/assets/deskswipe-panel-light.png" alt="DeskSwipe's menu bar panel with status and a feature toggle" width="640" height="638"></div>
+        </article>
 
-      <article class="project" id="deskswipe" data-doc="p-deskswipe" data-title="DeskSwipe">
-        <div class="p-text">
-          <div class="p-meta"><span class="badge os">open source</span><span>macOS · Swift · MIT</span></div>
-          <h3>DeskSwipe</h3>
-          <p>Windows-style "show desktop" for the Mac. Three fingers down: every window minimizes. Three fingers up: exactly those windows come back, in order. Windows you minimized yourself stay put.</p>
-          <p>It remembers only what the last swipe hid, and forgets any window you bring back from the Dock, close, or quit.</p>
-          <div class="stackline">Swift · AppKit · SwiftUI · Accessibility API · MultitouchSupport · Swift Testing</div>
-          <div class="textlinks"><a href="https://github.com/DeskSwipe/DeskSwipe/releases/latest" target="_blank" rel="noopener">download ↓</a><a href="https://github.com/DeskSwipe/DeskSwipe" target="_blank" rel="noopener">source →</a></div>
-        </div>
-        <div class="shot">
-          <img id="ds-shot" src="/assets/deskswipe-panel-light.png" alt="DeskSwipe's menu bar panel with status and a feature toggle" width="640" height="638">
-          <span class="sticker">3 fingers ↓ ↑</span>
-        </div>
-      </article>
-
-      <article class="project flip" id="test-agent" data-doc="p-e2e" data-title="E2E test agent">
-        <div class="p-text">
-          <div class="p-meta"><span class="badge">CEO Excellence Award</span><span>OpenText</span></div>
+        <article class="tile project reveal" id="test-agent" data-doc="p-e2e" data-title="E2E test agent">
+          <div class="meta"><span class="award">CEO Excellence Award</span><span>OpenText</span></div>
           <h3>E2E test agent</h3>
+          <div class="flow" aria-label="How it works">
+            <span class="step">manual test cases</span><span class="arrow">→</span>
+            <span class="step">plan</span><span class="arrow">→</span>
+            <span class="step">execute, in gated phases</span><span class="arrow">→</span>
+            <span class="step gate">reviewer sub-agent</span><span class="arrow">→</span>
+            <span class="step out">Playwright tests</span>
+          </div>
           <dl class="case">
             <dt>problem</dt><dd>Turning manual test cases into automated Playwright tests.</dd>
             <dt>my part</dt><dd>I built the agent.</dd>
@@ -361,24 +151,14 @@ layout: null
             <dt>result</dt><dd><strong>Monthly test automation rose 2.5×</strong>; adopted organisation-wide.</dd>
           </dl>
           <div class="stackline">Playwright · tool calling · plan-and-execute · multi-model evals</div>
-        </div>
-        <div class="flow">
-          <span class="flow-title">how it works</span>
-          <div class="steps">
-            <span class="step">manual test cases</span><span class="arrow">→</span>
-            <span class="step">plan</span><span class="arrow">→</span>
-            <span class="step">execute, in gated phases</span><span class="arrow">→</span>
-            <span class="step gate">reviewer sub-agent</span><span class="arrow">→</span>
-            <span class="step out">Playwright tests</span>
-          </div>
-          <div class="flow-note">evaluated across multiple models</div>
-        </div>
-      </article>
+        </article>
 
-      <article class="project" id="triage-rag" data-doc="p-rag" data-title="Defect-triage RAG">
-        <div class="p-text">
-          <div class="p-meta"><span class="badge">AI Innovation Award</span><span>OpenText</span></div>
+        <article class="tile project reveal" id="triage-rag" data-doc="p-rag" data-title="Defect-triage RAG">
+          <div class="meta"><span class="award">AI Innovation Award</span><span>OpenText</span></div>
           <h3>Defect-triage RAG</h3>
+          <div class="flow" aria-label="What I built">
+            <span class="step">ingestion</span><span class="step">chunking</span><span class="step">classification</span><span class="step">re-ranking</span><span class="step gate">embedding fix</span>
+          </div>
           <dl class="case">
             <dt>problem</dt><dd>Defect triage took too long.</dd>
             <dt>my part</dt><dd>I built the RAG pipeline of the defect-triage agent.</dd>
@@ -386,124 +166,108 @@ layout: null
             <dt>result</dt><dd><strong>Triage time cut by about 70%.</strong></dd>
           </dl>
           <div class="stackline">LangGraph · Python · FastAPI · FAISS · Angular dashboard</div>
-        </div>
-        <div class="flow">
-          <span class="flow-title">what I built</span>
-          <div class="steps">
-            <span class="step">ingestion</span><span class="arrow">·</span>
-            <span class="step">chunking</span><span class="arrow">·</span>
-            <span class="step">classification</span><span class="arrow">·</span>
-            <span class="step">re-ranking</span><span class="arrow">·</span>
-            <span class="step gate">embedding fix</span>
-          </div>
-          <div class="flow-note">served by FastAPI, with an Angular dashboard</div>
-        </div>
-      </article>
+        </article>
 
-      <article class="project flip" id="harness" data-doc="p-harness" data-title="Agent harness and evals">
-        <div class="p-text">
-          <div class="p-meta"><span>OpenText</span></div>
-          <h3>Agent harness &amp; evals</h3>
-          <dl class="case">
-            <dt>built</dt><dd>A terminal AI agent harness on the open-source pi agent, with verification gates, model-tier steering and token budgets.</dd>
-            <dt>also</dt><dd>I evaluate and benchmark agents across models, and worked on a multi-agent threat-modeling agent (STRIDE, CVSS 3.1) that ties findings to file/line evidence, with a sub-agent re-checking Critical/High findings.</dd>
-            <dt>writing</dt><dd><a href="/blog/i-read-the-source-of-12-coding-agents/">I read the source of 12 coding agents</a></dd>
-          </dl>
-          <div class="stackline">agent harnesses · agent evals · multi-agent · STRIDE · CVSS 3.1</div>
-        </div>
-        <div class="flow">
-          <span class="flow-title">harness</span>
-          <div class="steps">
-            <span class="step gate">verification gates</span>
-            <span class="step">model-tier steering</span>
-            <span class="step">token budgets</span>
+        <article class="tile project full reveal" id="harness" data-doc="p-harness" data-title="Agent harness and evals">
+          <div>
+            <div class="meta"><span>OpenText</span></div>
+            <h3>Agent harness &amp; evals</h3>
+            <dl class="case">
+              <dt>built</dt><dd>A terminal AI agent harness on the open-source pi agent, with verification gates, model-tier steering and token budgets.</dd>
+              <dt>also</dt><dd>I evaluate and benchmark agents across models, and worked on a multi-agent threat-modeling agent (STRIDE, CVSS 3.1) that ties findings to file/line evidence, with a sub-agent re-checking Critical/High findings.</dd>
+              <dt>writing</dt><dd><a href="/blog/i-read-the-source-of-12-coding-agents/">I read the source of 12 coding agents</a></dd>
+            </dl>
+            <div class="stackline">agent harnesses · agent evals · multi-agent · STRIDE · CVSS 3.1</div>
           </div>
-          <div class="flow-note">threat-modeling agent</div>
-          <div class="steps" style="margin-top:8px">
-            <span class="step">findings</span><span class="arrow">→</span>
-            <span class="step">file/line evidence</span><span class="arrow">→</span>
-            <span class="step gate">sub-agent re-checks Critical/High</span>
+          <div>
+            <div class="flow">
+              <span class="flow-label">Harness</span>
+              <span class="step gate">verification gates</span><span class="step">model-tier steering</span><span class="step">token budgets</span>
+            </div>
+            <div class="flow">
+              <span class="flow-label">Threat-modeling agent</span>
+              <span class="step">findings</span><span class="arrow">→</span><span class="step">file/line evidence</span><span class="arrow">→</span><span class="step gate">sub-agent re-checks Critical/High</span>
+            </div>
           </div>
-        </div>
-      </article>
+        </article>
+      </div>
     </div>
   </section>
 
-  <section id="writing" data-label="03 / writing">
+  <section class="band" id="writing" data-label="writing">
     <div class="wrap">
-      <div class="sec-head">
-        <div class="label"><span class="num">03</span>writing<small>notes from the work</small></div>
-        <div><h2 class="sec-title">Writing.</h2></div>
+      <div class="head reveal">
+        <p class="eyebrow">Writing</p>
+        <h2>Notes from the work.</h2>
       </div>
-      <ul class="post-list">
+      <div class="posts">
         {% for post in site.posts limit: 3 %}
-        <li data-doc="w-{{ post.slug }}" data-title="{{ post.title | escape }}">
-          <time datetime="{{ post.date | date_to_xmlschema }}">{{ post.date | date: "%b %-d, %Y" }}</time>
+        <article class="tile post-card reveal" data-doc="w-{{ post.slug }}" data-title="{{ post.title | escape }}">
+          <time datetime="{{ post.date | date_to_xmlschema }}">{{ post.date | date: "%B %-d, %Y" }}</time>
           <div>
             <h3><a href="{{ post.url }}">{{ post.title }}</a></h3>
             <p>{{ post.description }}</p>
           </div>
-        </li>
+          <a class="more" href="{{ post.url }}">Read</a>
+        </article>
         {% endfor %}
-      </ul>
-      <p class="writing-more"><a href="/blog/">all writing →</a> · <a href="/feed.xml">rss</a></p>
+      </div>
+      <p class="after links"><a class="more" href="/blog/">All writing</a><a class="more" href="/feed.xml">RSS feed</a></p>
     </div>
   </section>
 
-  <section class="alt" id="log" data-label="04 / changelog">
+  <section class="band alt" id="log" data-label="changelog">
     <div class="wrap">
-      <div class="sec-head">
-        <div class="label"><span class="num">04</span>changelog<small>newest first</small></div>
-        <div>
-          <h2 class="sec-title">Release notes.</h2>
-          <p class="lede">Every role at OpenText, Bengaluru. I own features end to end, from design and delivery to production support; I run design and code reviews, and guide junior engineers.</p>
-        </div>
+      <div class="head reveal">
+        <p class="eyebrow">Changelog</p>
+        <h2>Release notes.</h2>
+        <p>Every role at OpenText, Bengaluru. I own features end to end, from design and delivery to production support; I run design and code reviews, and guide junior engineers.</p>
       </div>
       <div class="log">
-        <div class="rel now-role" data-doc="v3" data-title="Software Engineer (SDE-2), Nov 2023 to present">
-          <div><div class="v">v3</div><div class="d">Nov 2023 → now</div></div>
+        <div class="tile rel now-role reveal" data-doc="v3" data-title="Software Engineer (SDE-2), Nov 2023 to present">
+          <div><span class="ver">v3</span><div class="d">Nov 2023 – now</div></div>
           <div>
             <h3>Software Engineer (SDE-2)</h3>
             <p class="org">OpenText · Core Share</p>
             <ul>
-              <li><span class="k add">added</span><span>Drove the Elasticsearch-to-OpenSearch migration: an engine-agnostic client and dual-write for a safe, staged cutover.</span></li>
-              <li><span class="k add">added</span><span>SIEM event streaming on Kafka Connect, with compensating steps, async export workers and reconciliation APIs.</span></li>
-              <li><span class="k add">added</span><span>OpenText Intelligent Viewing in the Angular app: real-time collaboration over WebSockets, presentation mode, search and permission-aware print.</span></li>
-              <li><span class="k add">added</span><span>AI: the test-automation agent, the defect-triage RAG pipeline, the agent harness and the threat-modeling agent.</span></li>
-              <li><span class="k chg">worked on</span><span>Targeted reindexing, permission-trimmed search, Kafka consumer recovery, the streaming upload path for files up to 10 GB, and the AngularJS-to-Angular migration.</span></li>
-              <li><span class="k sec">security</span><span>Tenant isolation, RBAC for external collaborators, OAuth/OIDC, SSO and 2FA.</span></li>
-              <li><span class="k fix">fixed</span><span>Investigated a double sign-in in the Angular bootstrap and designed a safer OIDC sign-in flow. Fixed RxJS memory leaks.</span></li>
+              <li><span class="k add">Added</span><span>Drove the Elasticsearch-to-OpenSearch migration: an engine-agnostic client and dual-write for a safe, staged cutover.</span></li>
+              <li><span class="k add">Added</span><span>SIEM event streaming on Kafka Connect, with compensating steps, async export workers and reconciliation APIs.</span></li>
+              <li><span class="k add">Added</span><span>OpenText Intelligent Viewing in the Angular app: real-time collaboration over WebSockets, presentation mode, search and permission-aware print.</span></li>
+              <li><span class="k add">Added</span><span>AI: the test-automation agent, the defect-triage RAG pipeline, the agent harness and the threat-modeling agent.</span></li>
+              <li><span class="k chg">Worked on</span><span>Targeted reindexing, permission-trimmed search, Kafka consumer recovery, the streaming upload path for files up to 10 GB, and the AngularJS-to-Angular migration.</span></li>
+              <li><span class="k sec">Security</span><span>Tenant isolation, RBAC for external collaborators, OAuth/OIDC, SSO and 2FA.</span></li>
+              <li><span class="k fix">Fixed</span><span>Investigated a double sign-in in the Angular bootstrap and designed a safer OIDC sign-in flow. Fixed RxJS memory leaks.</span></li>
             </ul>
-            <p class="learned">LLMs miss a rule or two, so the important ones get checked in code.<span>what this role taught me</span></p>
+            <p class="learned">LLMs miss a rule or two, so the important ones get checked in code.<span>What this role taught me</span></p>
           </div>
         </div>
-        <div class="rel" data-doc="v2" data-title="Associate Software Engineer, Nov 2021 to Oct 2023">
-          <div><div class="v">v2</div><div class="d">Nov 2021 → Oct 2023</div></div>
+        <div class="tile rel reveal" data-doc="v2" data-title="Associate Software Engineer, Nov 2021 to Oct 2023">
+          <div><span class="ver">v2</span><div class="d">Nov 2021 – Oct 2023</div></div>
           <div>
             <h3>Associate Software Engineer</h3>
             <p class="org">OpenText · Core Share</p>
             <ul>
-              <li><span class="k add">added</span><span>Helped build Interactive Reports: a Node.js (Fastify) service querying activity data in Elasticsearch, with Angular dashboards for audit and compliance.</span></li>
-              <li><span class="k add">added</span><span>Web Links, owned end to end: Sequelize model, Sails.js REST APIs, permissions, activity feed, notifications and UI. My first feature across database, API and UI.</span></li>
-              <li><span class="k chg">changed</span><span>Moved AngularJS screens to the SmartUI design system: LESS theme variables, right-to-left layouts, translations for every supported language, tenant branding.</span></li>
-              <li><span class="k chg">changed</span><span>Moved the shared data-model library to Sequelize v6, including native promises and a Model.changed() fix.</span></li>
-              <li><span class="k sec">security</span><span>Cleared Twistlock and Black Duck findings by tracing vulnerable transitive npm dependencies and pinning safe versions.</span></li>
+              <li><span class="k add">Added</span><span>Helped build Interactive Reports: a Node.js (Fastify) service querying activity data in Elasticsearch, with Angular dashboards for audit and compliance.</span></li>
+              <li><span class="k add">Added</span><span>Web Links, owned end to end: Sequelize model, Sails.js REST APIs, permissions, activity feed, notifications and UI. My first feature across database, API and UI.</span></li>
+              <li><span class="k chg">Changed</span><span>Moved AngularJS screens to the SmartUI design system: LESS theme variables, right-to-left layouts, translations for every supported language, tenant branding.</span></li>
+              <li><span class="k chg">Changed</span><span>Moved the shared data-model library to Sequelize v6, including native promises and a Model.changed() fix.</span></li>
+              <li><span class="k sec">Security</span><span>Cleared Twistlock and Black Duck findings by tracing vulnerable transitive npm dependencies and pinning safe versions.</span></li>
             </ul>
-            <p class="learned">Interactive Reports is where I got hands-on with Elasticsearch queries and aggregations, and with standing up a new microservice.<span>what this role taught me</span></p>
+            <p class="learned">Interactive Reports is where I got hands-on with Elasticsearch queries and aggregations, and with standing up a new microservice.<span>What this role taught me</span></p>
           </div>
         </div>
-        <div class="rel" data-doc="v1" data-title="Engineering Intern, Apr 2021 to Oct 2021">
-          <div><div class="v">v1</div><div class="d">Apr 2021 → Oct 2021</div></div>
+        <div class="tile rel reveal" data-doc="v1" data-title="Engineering Intern, Apr 2021 to Oct 2021">
+          <div><span class="ver">v1</span><div class="d">Apr 2021 – Oct 2021</div></div>
           <div>
             <h3>Engineering Intern</h3>
             <p class="org">OpenText</p>
             <ul>
-              <li><span class="k add">added</span><span>Built a single-page app for Covisint in Angular 12 and TypeScript; then SmartUI pages in AngularJS and UI fixes in Core Share.</span></li>
+              <li><span class="k add">Added</span><span>Built a single-page app for Covisint in Angular 12 and TypeScript; then SmartUI pages in AngularJS and UI fixes in Core Share.</span></li>
             </ul>
           </div>
         </div>
-        <div class="rel" data-doc="v0" data-title="B.Tech, Computer Science, SRM University">
-          <div><div class="v">v0</div><div class="d">2017 → 2021</div></div>
+        <div class="tile rel reveal" data-doc="v0" data-title="B.Tech, Computer Science, SRM University">
+          <div><span class="ver">v0</span><div class="d">2017 – 2021</div></div>
           <div>
             <h3>B.Tech, Computer Science</h3>
             <p class="org">SRM University · education</p>
@@ -513,40 +277,84 @@ layout: null
     </div>
   </section>
 
-  <section id="stack" data-label="05 / stack">
+  <section class="band" id="stack" data-label="stack">
     <div class="wrap">
-      <div class="sec-head">
-        <div class="label"><span class="num">05</span>stack<small>daily drivers</small></div>
-        <div><h2 class="sec-title">Tools I reach for.</h2></div>
+      <div class="head reveal">
+        <p class="eyebrow">Stack</p>
+        <h2>Tools I reach for.</h2>
       </div>
-      <dl class="stack" data-doc="stack" data-title="Skills and tools">
-        <dt>front end</dt><dd>Angular, TypeScript, RxJS, AngularJS, WebSockets, LESS, localization</dd>
-        <dt>back end</dt><dd>Node.js (Fastify, Sails.js), Python (FastAPI, Tornado), REST APIs, Sequelize, microservices</dd>
-        <dt>data</dt><dd>Kafka, OpenSearch, Elasticsearch, PostgreSQL, Cassandra, Redis</dd>
-        <dt>ai</dt><dd>AI agents, agent evals, LangGraph, RAG, FAISS, Playwright</dd>
-        <dt>platform &amp; security</dt><dd>Google Cloud, Kubernetes, OAuth/OIDC, SSO, 2FA, RBAC, application security</dd>
-        <dt>certifications</dt><dd>The Web Developer Bootcamp · Introduction to HTML5 · UC Davis, Introduction to Web Development</dd>
-        <dt>after hours</dt><dd>Swift and AppKit (DeskSwipe)</dd>
+      <dl class="stack reveal" data-doc="stack" data-title="Skills and tools">
+        <div><dt>Front end</dt><dd>
+          {% include tech.html n="Angular" c="#DD0031" i="angular" %}
+          {% include tech.html n="TypeScript" c="#3178C6" i="typescript" %}
+          {% include tech.html n="RxJS" c="#B7178C" i="reactivex" %}
+          {% include tech.html n="AngularJS" c="#E23237" b="JS" %}
+          {% include tech.html n="LESS" c="#1D365D" i="less" dk=1 %}
+          <span class="ti plain">WebSockets</span>
+          <span class="ti plain">localization</span>
+        </dd></div>
+        <div><dt>Back end</dt><dd>
+          {% include tech.html n="Node.js" c="#5FA04E" i="nodedotjs" %}
+          {% include tech.html n="Fastify" c="#000000" i="fastify" dk=1 %}
+          {% include tech.html n="Sails.js" c="#14ACC2" i="sailsdotjs" %}
+          {% include tech.html n="Python" c="#3776AB" i="python" %}
+          {% include tech.html n="FastAPI" c="#009688" i="fastapi" %}
+          {% include tech.html n="Tornado" c="#3776AB" b="T" %}
+          {% include tech.html n="Sequelize" c="#52B0E7" i="sequelize" %}
+          <span class="ti plain">REST APIs</span>
+          <span class="ti plain">microservices</span>
+        </dd></div>
+        <div><dt>Data</dt><dd>
+          {% include tech.html n="Kafka" c="#231F20" i="apachekafka" dk=1 %}
+          {% include tech.html n="OpenSearch" c="#005EB8" i="opensearch" %}
+          {% include tech.html n="Elasticsearch" c="#005571" i="elasticsearch" dk=1 %}
+          {% include tech.html n="PostgreSQL" c="#4169E1" i="postgresql" %}
+          {% include tech.html n="Cassandra" c="#1287B1" i="apachecassandra" %}
+          {% include tech.html n="Redis" c="#FF4438" i="redis" %}
+        </dd></div>
+        <div><dt>AI</dt><dd>
+          {% include tech.html n="LangGraph" c="#1C3C3C" b="LG" %}
+          {% include tech.html n="FAISS" c="#0467DF" b="F" %}
+          {% include tech.html n="Playwright" c="#2EAD33" b="PW" %}
+          <span class="ti plain">AI agents</span>
+          <span class="ti plain">agent evals</span>
+          <span class="ti plain">RAG</span>
+        </dd></div>
+        <div><dt>Platform &amp; security</dt><dd>
+          {% include tech.html n="Google Cloud" c="#4285F4" i="googlecloud" %}
+          {% include tech.html n="Kubernetes" c="#326CE5" i="kubernetes" %}
+          {% include tech.html n="OAuth/OIDC" c="#F78C40" i="openid" %}
+          <span class="ti plain">SSO</span>
+          <span class="ti plain">2FA</span>
+          <span class="ti plain">RBAC</span>
+          <span class="ti plain">application security</span>
+        </dd></div>
+        <div><dt>After hours</dt><dd>
+          {% include tech.html n="Swift" c="#F05138" i="swift" %}
+          <span class="ti plain">AppKit</span>
+          <span class="ti plain">DeskSwipe</span>
+        </dd></div>
+        <div class="certs"><dt>Certifications</dt><dd>The Web Developer Bootcamp · Introduction to HTML5 · UC Davis, Introduction to Web Development</dd></div>
       </dl>
     </div>
   </section>
 
-  <section class="contact" id="contact" data-label="06 / contact">
-    <div class="wrap" data-doc="contact" data-title="Contact: email, LinkedIn, GitHub">
-      <div class="label"><span class="num">06</span>contact</div>
-      <h2 class="sec-title">Let's talk shop.</h2>
+  <section class="contact" id="contact" data-label="contact">
+    <div class="wrap reveal" data-doc="contact" data-title="Contact: email, LinkedIn, GitHub">
+      <p class="eyebrow">Contact</p>
+      <h2>Let's talk shop.</h2>
       <p>Happy to talk about distributed systems, agent design or RAG. Email is best.</p>
       <a class="mail" href="mailto:adarshpandey.eng@gmail.com">adarshpandey.eng@gmail.com</a>
-      <div class="ctas">
-        <a class="btn" href="https://www.linkedin.com/in/pandey-adarsh/" target="_blank" rel="noopener">linkedin</a>
-        <a class="btn" href="https://github.com/adarsh-pandey07" target="_blank" rel="noopener">github</a>
+      <div class="links">
+        <a class="more" href="https://www.linkedin.com/in/pandey-adarsh/" target="_blank" rel="noopener">LinkedIn</a>
+        <a class="more" href="https://github.com/adarsh-pandey07" target="_blank" rel="noopener">GitHub</a>
       </div>
     </div>
   </section>
 </main>
 
 <footer class="site">
-  <div class="wrap"><span>© <span id="year">2026</span> Adarsh Pandey</span><span><a href="/feed.xml">rss</a></span></div>
+  <div class="wrap"><span>© <span id="year">2026</span> Adarsh Pandey</span><span><a href="/blog/">Writing</a> · <a href="/feed.xml">RSS</a></span></div>
 </footer>
 
 <script type="application/json" id="postsData">[{% for post in site.posts %}{"id": {{ post.slug | prepend: "w-" | jsonify }}, "title": {{ post.title | jsonify }}, "url": {{ post.url | jsonify }}, "text": {{ post.content | strip_html | normalize_whitespace | jsonify }}}{% unless forloop.last %},{% endunless %}{% endfor %}]</script>
@@ -565,7 +373,7 @@ layout: null
     if (theme) root.setAttribute('data-theme', theme); else root.removeAttribute('data-theme');
     var dark = theme ? theme === 'dark' : media.matches;
     root.setAttribute('data-mode', dark ? 'dark' : 'light');
-    themeBtn.textContent = dark ? 'light' : 'dark';
+    themeBtn.textContent = dark ? 'Light' : 'Dark';
     if (shot) shot.src = '/assets/deskswipe-panel-' + (dark ? 'dark' : 'light') + '.png';
   }
   applyTheme(stored());
@@ -579,18 +387,28 @@ layout: null
 
   /* ── Highlight the section you're in ── */
   var navLinks = {};
-  document.querySelectorAll('.secnav-links a').forEach(function (a) { navLinks[a.getAttribute('href').slice(1)] = a; });
+  document.querySelectorAll('.gnav-links a').forEach(function (a) { navLinks[a.getAttribute('href').slice(1)] = a; });
+  /* ── Fade sections in as they arrive ── */
+  var reveals = document.querySelectorAll('.reveal');
   if ('IntersectionObserver' in window) {
     var spy = new IntersectionObserver(function (entries) {
       entries.forEach(function (en) {
         if (!en.isIntersecting) return;
         Object.keys(navLinks).forEach(function (id) { navLinks[id].classList.toggle('active', id === en.target.id); });
         var a = navLinks[en.target.id];
-        if (a && a.scrollIntoView && a.parentNode.scrollWidth > a.parentNode.clientWidth) a.parentNode.scrollLeft = a.offsetLeft - 12;
+        if (a && a.parentNode.scrollWidth > a.parentNode.clientWidth) a.parentNode.scrollLeft = a.offsetLeft - 12;
       });
     }, { rootMargin: '-40% 0px -55% 0px' });
     Object.keys(navLinks).forEach(function (id) { var el = document.getElementById(id); if (el) spy.observe(el); });
+
+    var shown = new IntersectionObserver(function (entries) {
+      entries.forEach(function (en) { if (en.isIntersecting) { en.target.classList.add('in'); shown.unobserve(en.target); } });
+    }, { rootMargin: '0px 0px -8% 0px' });
+    reveals.forEach(function (el) { shown.observe(el); });
+  } else {
+    reveals.forEach(function (el) { el.classList.add('in'); });
   }
+  window.addEventListener('beforeprint', function () { reveals.forEach(function (el) { el.classList.add('in'); }); });
   document.getElementById('year').textContent = new Date().getFullYear();
 
   /* ── Ask my work: BM25 over passages from this page and my posts ── */
