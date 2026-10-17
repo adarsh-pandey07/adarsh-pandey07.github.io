@@ -197,12 +197,36 @@ layout: null
     .project { padding: 14px 0; }
     .mail { font-size: 14pt; border: 0; }
   }
+
+  /* ───── Wayfinding: sticky section bar, big numbers, alternating bands ───── */
+  html { scroll-padding-top: 64px; }
+  .secnav { position: sticky; top: 0; z-index: 50; background: var(--bg); border-bottom: 2px solid var(--fg); font: 500 13px/1 var(--mono); }
+  .secnav .wrap { display: flex; align-items: center; justify-content: space-between; gap: 20px; height: 48px; }
+  .secnav-home { font: 700 15px/1 var(--display); letter-spacing: -.01em; text-decoration: none; white-space: nowrap; }
+  .secnav-links { display: flex; gap: 4px; overflow-x: auto; scrollbar-width: none; }
+  .secnav-links::-webkit-scrollbar { display: none; }
+  .secnav-links a { display: flex; align-items: center; gap: 6px; padding: 8px 10px; text-decoration: none; color: var(--fg-2); white-space: nowrap; border-bottom: 3px solid transparent; }
+  .secnav-links a span { color: var(--fg-3); font-size: 11px; }
+  .secnav-links a:hover { color: var(--fg); }
+  .secnav-links a.active { color: var(--fg); border-bottom-color: var(--signal); }
+  .secnav-links a.active span { color: var(--accent-text); }
+  .label .num { display: block; font: 800 clamp(3.2rem, 2rem + 4vw, 5.5rem)/.85 var(--display); letter-spacing: -.04em; color: transparent; -webkit-text-stroke: 1.5px var(--fg); margin-bottom: 10px; }
+  .contact .label .num { -webkit-text-stroke-color: var(--signal); }
+  section.alt { background: var(--bg-2); }
+  section.alt .flow { background: var(--bg); }
+  section.alt .flow-title { background: var(--bg-2); }
+  @media (max-width: 640px) {
+    .secnav-home { display: none; }
+    .secnav .wrap { padding: 0 6px; }
+    .label .num { font-size: 3rem; }
+  }
+  @media print { .secnav { display: none !important; } }
 </style>
 </head>
 <body>
 <a class="skip" href="#main">Skip to content</a>
 
-<header class="hero">
+<header class="hero" id="top">
   <div class="wrap">
     <div class="topbar">
       <a class="home" href="/">adarsh-pandey07.github.io</a>
@@ -258,6 +282,19 @@ layout: null
 </header>
 
 <main id="main">
+  <nav class="secnav" aria-label="Sections">
+    <div class="wrap">
+      <a class="secnav-home" href="#top">Adarsh Pandey</a>
+      <div class="secnav-links">
+        <a href="#results"><span>01</span>results</a>
+        <a href="#work"><span>02</span>work</a>
+        <a href="#writing"><span>03</span>writing</a>
+        <a href="#log"><span>04</span>changelog</a>
+        <a href="#stack"><span>05</span>stack</a>
+        <a href="#contact"><span>06</span>contact</a>
+      </div>
+    </div>
+  </nav>
   <div class="now" data-doc="now" data-title="What I'm doing now" data-label="now">
     <div class="wrap">
       <div class="label">now<time datetime="2026-10">updated Oct 2026</time></div>
@@ -272,7 +309,7 @@ layout: null
   <section id="results" data-label="01 / results">
     <div class="wrap">
       <div class="sec-head">
-        <div class="label">01 / results<small>on Core Share</small></div>
+        <div class="label"><span class="num">01</span>results<small>on Core Share</small></div>
         <div>
           <h2 class="sec-title">Numbers, not adjectives.</h2>
           <p class="lede">Core Share is OpenText's multi-tenant, event-driven SaaS for secure file sharing, on Google Cloud and Kubernetes. My focus there: data consistency, search at scale and large-file handling.</p>
@@ -288,10 +325,10 @@ layout: null
     </div>
   </section>
 
-  <section id="work" data-label="02 / work">
+  <section class="alt" id="work" data-label="02 / work">
     <div class="wrap">
       <div class="sec-head">
-        <div class="label">02 / work<small>side project + agents</small></div>
+        <div class="label"><span class="num">02</span>work<small>side project + agents</small></div>
         <div>
           <h2 class="sec-title">Things I've built.</h2>
           <p class="lede">My rule for agents: <em>LLMs miss a rule or two, so the important ones get checked in code.</em> That's why the agents below use gated phases, verification gates and reviewer sub-agents.</p>
@@ -395,7 +432,7 @@ layout: null
   <section id="writing" data-label="03 / writing">
     <div class="wrap">
       <div class="sec-head">
-        <div class="label">03 / writing<small>notes from the work</small></div>
+        <div class="label"><span class="num">03</span>writing<small>notes from the work</small></div>
         <div><h2 class="sec-title">Writing.</h2></div>
       </div>
       <ul class="post-list">
@@ -413,10 +450,10 @@ layout: null
     </div>
   </section>
 
-  <section id="log" data-label="04 / changelog">
+  <section class="alt" id="log" data-label="04 / changelog">
     <div class="wrap">
       <div class="sec-head">
-        <div class="label">04 / changelog<small>newest first</small></div>
+        <div class="label"><span class="num">04</span>changelog<small>newest first</small></div>
         <div>
           <h2 class="sec-title">Release notes.</h2>
           <p class="lede">Every role at OpenText, Bengaluru. I own features end to end, from design and delivery to production support; I run design and code reviews, and guide junior engineers.</p>
@@ -479,7 +516,7 @@ layout: null
   <section id="stack" data-label="05 / stack">
     <div class="wrap">
       <div class="sec-head">
-        <div class="label">05 / stack<small>daily drivers</small></div>
+        <div class="label"><span class="num">05</span>stack<small>daily drivers</small></div>
         <div><h2 class="sec-title">Tools I reach for.</h2></div>
       </div>
       <dl class="stack" data-doc="stack" data-title="Skills and tools">
@@ -496,7 +533,7 @@ layout: null
 
   <section class="contact" id="contact" data-label="06 / contact">
     <div class="wrap" data-doc="contact" data-title="Contact: email, LinkedIn, GitHub">
-      <div class="label">06 / contact</div>
+      <div class="label"><span class="num">06</span>contact</div>
       <h2 class="sec-title">Let's talk shop.</h2>
       <p>Happy to talk about distributed systems, agent design or RAG. Email is best.</p>
       <a class="mail" href="mailto:adarshpandey.eng@gmail.com">adarshpandey.eng@gmail.com</a>
@@ -539,6 +576,21 @@ layout: null
     applyTheme(next);
   });
   document.getElementById('printCv').addEventListener('click', function () { window.print(); });
+
+  /* ── Highlight the section you're in ── */
+  var navLinks = {};
+  document.querySelectorAll('.secnav-links a').forEach(function (a) { navLinks[a.getAttribute('href').slice(1)] = a; });
+  if ('IntersectionObserver' in window) {
+    var spy = new IntersectionObserver(function (entries) {
+      entries.forEach(function (en) {
+        if (!en.isIntersecting) return;
+        Object.keys(navLinks).forEach(function (id) { navLinks[id].classList.toggle('active', id === en.target.id); });
+        var a = navLinks[en.target.id];
+        if (a && a.scrollIntoView && a.parentNode.scrollWidth > a.parentNode.clientWidth) a.parentNode.scrollLeft = a.offsetLeft - 12;
+      });
+    }, { rootMargin: '-40% 0px -55% 0px' });
+    Object.keys(navLinks).forEach(function (id) { var el = document.getElementById(id); if (el) spy.observe(el); });
+  }
   document.getElementById('year').textContent = new Date().getFullYear();
 
   /* ── Ask my work: BM25 over passages from this page and my posts ── */
@@ -559,7 +611,8 @@ layout: null
   }
   function tokens(text) {
     var out = [];
-    (text.toLowerCase().match(/[a-z0-9]+/g) || []).forEach(function (w) {
+    // Drop apostrophes first so "won't" is one word ("wont"), not "won" + "t".
+    (text.toLowerCase().replace(/['’]/g, '').match(/[a-z0-9]+/g) || []).forEach(function (w) {
       w = ALIASES[w] || w;
       if (!stop[w]) out.push(stem(w));
     });
